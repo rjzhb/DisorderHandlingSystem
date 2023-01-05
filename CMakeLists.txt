@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.16)
+project(DisorderHandlingSystem)
+
+set(CMAKE_CXX_STANDARD 14)
+
+set(DISORDER_HANDLING_SYSTEM_SRC_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/src/include)
+
+include_directories(${DISORDER_HANDLING_SYSTEM_SRC_INCLUDE_DIR})
+
+add_subdirectory(src)
+add_executable(DisorderHandlingSystem main.cpp src/kslack/k_slack.cpp src/include/kslack/k_slack.h src/include/common/define.h)
