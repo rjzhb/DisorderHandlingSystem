@@ -177,6 +177,33 @@ src/kslack/k_slack.cpp.s:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.s
 .PHONY : src/kslack/k_slack.cpp.s
 
+src/manager/buffer_size_manager.o: src/manager/buffer_size_manager.cpp.o
+
+.PHONY : src/manager/buffer_size_manager.o
+
+# target to build an object file
+src/manager/buffer_size_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o
+.PHONY : src/manager/buffer_size_manager.cpp.o
+
+src/manager/buffer_size_manager.i: src/manager/buffer_size_manager.cpp.i
+
+.PHONY : src/manager/buffer_size_manager.i
+
+# target to preprocess a source file
+src/manager/buffer_size_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.i
+.PHONY : src/manager/buffer_size_manager.cpp.i
+
+src/manager/buffer_size_manager.s: src/manager/buffer_size_manager.cpp.s
+
+.PHONY : src/manager/buffer_size_manager.s
+
+# target to generate assembly for a file
+src/manager/buffer_size_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.s
+.PHONY : src/manager/buffer_size_manager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... src/kslack/k_slack.o"
 	@echo "... src/kslack/k_slack.i"
 	@echo "... src/kslack/k_slack.s"
+	@echo "... src/manager/buffer_size_manager.o"
+	@echo "... src/manager/buffer_size_manager.i"
+	@echo "... src/manager/buffer_size_manager.s"
 .PHONY : help
 
 
