@@ -15,6 +15,9 @@ public:
     //论文中的函数γ(L,T)
     auto y(int L, int T) -> double;
 
+    //离散随机变量Dik的概率密度函数fDiK， Dik表示连接算子在k设置下接受相应流中一个元组的粗粒度延迟
+    auto fDk() -> int;
+
 private:
 
 };

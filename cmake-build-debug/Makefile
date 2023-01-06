@@ -204,6 +204,33 @@ src/manager/buffer_size_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.s
 .PHONY : src/manager/buffer_size_manager.cpp.s
 
+src/manager/statistics_manager.o: src/manager/statistics_manager.cpp.o
+
+.PHONY : src/manager/statistics_manager.o
+
+# target to build an object file
+src/manager/statistics_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o
+.PHONY : src/manager/statistics_manager.cpp.o
+
+src/manager/statistics_manager.i: src/manager/statistics_manager.cpp.i
+
+.PHONY : src/manager/statistics_manager.i
+
+# target to preprocess a source file
+src/manager/statistics_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.i
+.PHONY : src/manager/statistics_manager.cpp.i
+
+src/manager/statistics_manager.s: src/manager/statistics_manager.cpp.s
+
+.PHONY : src/manager/statistics_manager.s
+
+# target to generate assembly for a file
+src/manager/statistics_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.s
+.PHONY : src/manager/statistics_manager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -222,6 +249,9 @@ help:
 	@echo "... src/manager/buffer_size_manager.o"
 	@echo "... src/manager/buffer_size_manager.i"
 	@echo "... src/manager/buffer_size_manager.s"
+	@echo "... src/manager/statistics_manager.o"
+	@echo "... src/manager/statistics_manager.i"
+	@echo "... src/manager/statistics_manager.s"
 .PHONY : help
 
 

@@ -8,4 +8,4 @@ set(DISORDER_HANDLING_SYSTEM_SRC_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/src/include)
 include_directories(${DISORDER_HANDLING_SYSTEM_SRC_INCLUDE_DIR})
 
 add_subdirectory(src)
-add_executable(DisorderHandlingSystem main.cpp src/kslack/k_slack.cpp src/include/kslack/k_slack.h src/include/common/define.h src/manager/buffer_size_manager.cpp src/include/manager/buffer_size_manager.h)
+add_executable(DisorderHandlingSystem main.cpp src/kslack/k_slack.cpp src/include/kslack/k_slack.h src/include/common/define.h src/manager/buffer_size_manager.cpp src/include/manager/buffer_size_manager.h src/manager/statistics_manager.cpp src/include/manager/statistics_manager.h)

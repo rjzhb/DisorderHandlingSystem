@@ -12,6 +12,11 @@
  * @return
  */
 auto BufferSizeManager::k_search(int L, int b, int g) -> int {
+    /**
+     *     TODO:需要获得 current maximum tuple delay（MAXDH)
+     *     TODO:需要获得instant recall requirement  Γ‘
+     *     TODO:需要调用γ(L, K)
+     */
     return 0;
 }
 
@@ -25,3 +30,5 @@ auto BufferSizeManager::k_search(int L, int b, int g) -> int {
 auto BufferSizeManager::y(int L, int T) -> double {
     return 0;
 }
+
+
