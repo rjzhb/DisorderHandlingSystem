@@ -3,3 +3,16 @@
 
 CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o
  /home/rjzhb/Project/DisorderHandlingSystem/main.cpp
+CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o
+ ../src/include/common/define.h
+ ../src/include/kslack/k_slack.h
+ ../src/include/manager/buffer_size_manager.h
+ ../src/include/manager/statistics_manager.h
+ /home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
+CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o
+ ../src/include/manager/buffer_size_manager.h
+ /home/rjzhb/Project/DisorderHandlingSystem/src/manager/buffer_size_manager.cpp
+CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o
+ ../src/include/common/define.h
+ ../src/include/manager/statistics_manager.h
+ /home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp

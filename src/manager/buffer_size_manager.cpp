@@ -21,14 +21,5 @@ auto BufferSizeManager::k_search(int L, int b, int g) -> int {
 }
 
 
-/**
- *
- * @param L
- * @param T
- * @return
- */
-auto BufferSizeManager::y(int L, int T) -> double {
-    return 0;
-}
 
 

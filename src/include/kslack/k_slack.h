@@ -10,6 +10,8 @@
 #include <queue>
 #include <set>
 #include "common/define.h"
+#include "manager/buffer_size_manager.h"
+#include "manager/statistics_manager.h"
 
 class KSlack {
 public:
@@ -31,6 +33,9 @@ private:
 
     //输出区
     std::queue<Tuple> output_list_;
+
+    BufferSizeManager *buffer_size_manager_;
+    StatisticsManager *statistics_manager_;
 };
 
 

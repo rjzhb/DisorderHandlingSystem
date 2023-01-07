@@ -6,7 +6,41 @@
 
 #IncludeRegexTransform: 
 
-/home/rjzhb/Project/DisorderHandlingSystem/main.cpp
-iostream
+../src/include/common/define.h
+
+../src/include/kslack/k_slack.h
+cstddef
 -
+queue
+-
+set
+-
+common/define.h
+../src/include/kslack/common/define.h
+manager/buffer_size_manager.h
+../src/include/kslack/manager/buffer_size_manager.h
+manager/statistics_manager.h
+../src/include/kslack/manager/statistics_manager.h
+
+../src/include/manager/buffer_size_manager.h
+
+../src/include/manager/statistics_manager.h
+vector
+-
+unordered_map
+-
+common/define.h
+../src/include/manager/common/define.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
+kslack/k_slack.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/manager/buffer_size_manager.cpp
+manager/buffer_size_manager.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/buffer_size_manager.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp
+manager/statistics_manager.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/statistics_manager.h
 

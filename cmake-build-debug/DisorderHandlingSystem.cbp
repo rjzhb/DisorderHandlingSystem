@@ -96,6 +96,9 @@
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/manager/buffer_size_manager.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/manager/statistics_manager.h">
+			<Option target="DisorderHandlingSystem"/>
+		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
@@ -103,9 +106,6 @@
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp">
-			<Option target="DisorderHandlingSystem"/>
-		</Unit>
-		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/CMakeLists.txt">
