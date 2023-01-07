@@ -35,8 +35,9 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     }
 
     //折线插值估计 , 双指针中心扩散法
+    int hi_size = histogram_map_[stream_id].size();
     int left = d - 1, right = d + 1;
-    while (left >= 0 && right < histogram_map_[stream_id].size()) {
+    while (left >= 0 && right < hi_size) {
         if (histogram_map_[stream_id][left] == 0) {
             left--;
         }
@@ -44,6 +45,29 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
             right++;
         }
     }
+
+    if (left < 0) {
+        left = d + 1, right = d + 2;
+        while (right < hi_size) {
+            if (histogram_map_[stream_id][left] == 0) {
+                left++;
+            }
+            if (histogram_map_[stream_id][right] == 0) {
+                right++;
+            }
+        }
+    } else if (right >= hi_size) {
+        left = d - 2, right = d - 1;
+        while (left >= 0) {
+            if (histogram_map_[stream_id][left] == 0) {
+                left--;
+            }
+            if (histogram_map_[stream_id][right] == 0) {
+                right--;
+            }
+        }
+    }
+
     double p_l = histogram_map_[stream_id][left];
     double p_r = histogram_map_[stream_id][right];
     //此时left和right分别指向了有实际数据的点，可用折线估计概率

@@ -8,6 +8,9 @@
 //系统参数定义
 //搜索粒度
 constexpr int g{};
+//自适应时间间隔
+constexpr int L{};
+//最大延迟
 constexpr int MAX_DELAY = 100;
 
 struct Tuple {

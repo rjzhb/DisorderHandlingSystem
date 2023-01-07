@@ -231,6 +231,33 @@ src/manager/statistics_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.s
 .PHONY : src/manager/statistics_manager.cpp.s
 
+src/synchronizer/synchronizer.o: src/synchronizer/synchronizer.cpp.o
+
+.PHONY : src/synchronizer/synchronizer.o
+
+# target to build an object file
+src/synchronizer/synchronizer.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.o
+.PHONY : src/synchronizer/synchronizer.cpp.o
+
+src/synchronizer/synchronizer.i: src/synchronizer/synchronizer.cpp.i
+
+.PHONY : src/synchronizer/synchronizer.i
+
+# target to preprocess a source file
+src/synchronizer/synchronizer.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.i
+.PHONY : src/synchronizer/synchronizer.cpp.i
+
+src/synchronizer/synchronizer.s: src/synchronizer/synchronizer.cpp.s
+
+.PHONY : src/synchronizer/synchronizer.s
+
+# target to generate assembly for a file
+src/synchronizer/synchronizer.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.s
+.PHONY : src/synchronizer/synchronizer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +279,9 @@ help:
 	@echo "... src/manager/statistics_manager.o"
 	@echo "... src/manager/statistics_manager.i"
 	@echo "... src/manager/statistics_manager.s"
+	@echo "... src/synchronizer/synchronizer.o"
+	@echo "... src/synchronizer/synchronizer.i"
+	@echo "... src/synchronizer/synchronizer.s"
 .PHONY : help
 
 
