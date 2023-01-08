@@ -5,17 +5,8 @@
 #include "operator/stream_operator.h"
 
 void StreamOperator::mswj_execution(std::vector<Stream *> stream_list_) {
-    for(int i = 0;i < stream_list_.size();i++){
+    for(auto stream: stream_list_){
 
     }
-    while (!input_list.empty()) {
-        Tuple tuple = input_list.front();
-        input_list.pop();
-        if (tuple.ts >= T_op_) {
-            T_op_ = tuple.ts;
 
-        } else {
-
-        }
-    }
 }

@@ -13,7 +13,7 @@
 class StreamOperator {
 public:
 
-    void mswj_execution(Stream *stream, std::queue<Tuple> input_list);
+    void mswj_execution(std::vector<Stream *> stream_list_);
 
 private:
     //连接时的T
