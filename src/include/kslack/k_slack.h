@@ -12,6 +12,7 @@
 #include "common/define.h"
 #include "manager/buffer_size_manager.h"
 #include "manager/statistics_manager.h"
+#include "common/stream.h"
 
 class KSlack {
 public:
@@ -23,11 +24,8 @@ private:
     size_t buffer_size_{};
     //当前时间(相当于论文的T值)
     int current_time_;
-    //流id，如论文中S1的id为1，S2的id为2
-    int stream_id_{};
     //传输过来的流
-    std::queue<Tuple> stream_list_;
-
+    Stream *stream_;
     //缓冲区(用随时保持有序的红黑树)
     std::set<Tuple, TupleComparator> buffer_;
 

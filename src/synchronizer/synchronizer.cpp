@@ -2,10 +2,11 @@
 // Created by 86183 on 2023/1/7.
 //
 
-#include "synchronizer.h"
+#include "synchronizer/synchronizer.h"
 
 //从k-slack发送过来的流
-void Synchronizer::synchronize_stream(int stream_id, std::queue<Tuple> input_list) {
+void Synchronizer::synchronize_stream(Stream *stream, std::queue<Tuple> input_list) {
+    int stream_id = stream->get_id();
     while (!input_list.empty()) {
         Tuple tuple = input_list.front();
         input_list.pop();
@@ -18,14 +19,14 @@ void Synchronizer::synchronize_stream(int stream_id, std::queue<Tuple> input_lis
             //检测是否缓冲区拥有所有流的tuple
             while (own_stream_ == stream_count_) {
                 //找到Tsync
-                for(auto it : sync_buffer_map_){
+                for (auto it: sync_buffer_map_) {
                     T_sync_ = std::min(T_sync_, it.second.begin()->ts);
                 }
 
                 for (auto it: sync_buffer_map_) {
                     //将所有等于Tsync的元组输出
                     while (it.second.begin()->ts == T_sync_) {
-                        output_.push(*it.second.begin());
+                        stream->syn_res_push(*it.second.begin());
                         it.second.erase(it.second.begin());
                     }
                     if (it.second.empty()) {
@@ -36,7 +37,7 @@ void Synchronizer::synchronize_stream(int stream_id, std::queue<Tuple> input_lis
         } else {
             Tuple tuple = input_list.front();
             input_list.pop();
-            output_.push(tuple);
+            stream->syn_res_push(tuple);
         }
     }
 

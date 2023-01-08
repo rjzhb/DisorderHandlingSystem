@@ -122,13 +122,41 @@ CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.s: cmake
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp -o CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.s
 
+CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o: CMakeFiles/DisorderHandlingSystem.dir/flags.make
+CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o: ../src/operator/stream_operator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp
+
+CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp > CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.i
+
+CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp -o CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.s
+
+CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o: CMakeFiles/DisorderHandlingSystem.dir/flags.make
+CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o: ../src/common/stream.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp
+
+CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp > CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.i
+
+CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp -o CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.s
+
 # Object files for target DisorderHandlingSystem
 DisorderHandlingSystem_OBJECTS = \
 "CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o" \
 "CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o" \
 "CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o" \
 "CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o" \
-"CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.o"
+"CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.o" \
+"CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o" \
+"CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o"
 
 # External object files for target DisorderHandlingSystem
 DisorderHandlingSystem_EXTERNAL_OBJECTS =
@@ -138,9 +166,11 @@ DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack
 DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o
 DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o
 DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.o
+DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o
+DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o
 DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/build.make
 DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable DisorderHandlingSystem"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable DisorderHandlingSystem"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DisorderHandlingSystem.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

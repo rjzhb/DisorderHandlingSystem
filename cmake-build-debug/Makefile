@@ -150,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/common/stream.o: src/common/stream.cpp.o
+
+.PHONY : src/common/stream.o
+
+# target to build an object file
+src/common/stream.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o
+.PHONY : src/common/stream.cpp.o
+
+src/common/stream.i: src/common/stream.cpp.i
+
+.PHONY : src/common/stream.i
+
+# target to preprocess a source file
+src/common/stream.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.i
+.PHONY : src/common/stream.cpp.i
+
+src/common/stream.s: src/common/stream.cpp.s
+
+.PHONY : src/common/stream.s
+
+# target to generate assembly for a file
+src/common/stream.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.s
+.PHONY : src/common/stream.cpp.s
+
 src/kslack/k_slack.o: src/kslack/k_slack.cpp.o
 
 .PHONY : src/kslack/k_slack.o
@@ -231,6 +258,33 @@ src/manager/statistics_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.s
 .PHONY : src/manager/statistics_manager.cpp.s
 
+src/operator/stream_operator.o: src/operator/stream_operator.cpp.o
+
+.PHONY : src/operator/stream_operator.o
+
+# target to build an object file
+src/operator/stream_operator.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o
+.PHONY : src/operator/stream_operator.cpp.o
+
+src/operator/stream_operator.i: src/operator/stream_operator.cpp.i
+
+.PHONY : src/operator/stream_operator.i
+
+# target to preprocess a source file
+src/operator/stream_operator.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.i
+.PHONY : src/operator/stream_operator.cpp.i
+
+src/operator/stream_operator.s: src/operator/stream_operator.cpp.s
+
+.PHONY : src/operator/stream_operator.s
+
+# target to generate assembly for a file
+src/operator/stream_operator.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.s
+.PHONY : src/operator/stream_operator.cpp.s
+
 src/synchronizer/synchronizer.o: src/synchronizer/synchronizer.cpp.o
 
 .PHONY : src/synchronizer/synchronizer.o
@@ -270,6 +324,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/common/stream.o"
+	@echo "... src/common/stream.i"
+	@echo "... src/common/stream.s"
 	@echo "... src/kslack/k_slack.o"
 	@echo "... src/kslack/k_slack.i"
 	@echo "... src/kslack/k_slack.s"
@@ -279,6 +336,9 @@ help:
 	@echo "... src/manager/statistics_manager.o"
 	@echo "... src/manager/statistics_manager.i"
 	@echo "... src/manager/statistics_manager.s"
+	@echo "... src/operator/stream_operator.o"
+	@echo "... src/operator/stream_operator.i"
+	@echo "... src/operator/stream_operator.s"
 	@echo "... src/synchronizer/synchronizer.o"
 	@echo "... src/synchronizer/synchronizer.i"
 	@echo "... src/synchronizer/synchronizer.s"
