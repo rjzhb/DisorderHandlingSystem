@@ -31,8 +31,8 @@ private:
     //缓冲区(用随时保持有序的红黑树)
     std::set<Tuple, TupleComparator> buffer_;
 
-    //输出区
-    std::queue<Tuple> output_list_;
+//    //输出区
+//    std::queue<Tuple> output_list_;
 
     BufferSizeManager *buffer_size_manager_;
     StatisticsManager *statistics_manager_;

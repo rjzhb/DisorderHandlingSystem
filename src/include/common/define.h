@@ -27,7 +27,7 @@ struct Tuple {
 struct TupleComparator {
     //按到达时间来排序
     bool operator()(Tuple e1, Tuple e2) {
-        return e1.ts < e2.ts;
+        return e1.ts == e2.ts ? e1.id < e2.id : e1.ts < e2.ts;
     }
 };
 
