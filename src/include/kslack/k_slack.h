@@ -17,7 +17,7 @@
 class KSlack {
 public:
 
-    void disorder_handling();
+    auto disorder_handling() -> void;
 
 private:
     //缓冲区大小,相当于论文的K值,注：缓冲区大小并不是指集合的大小，而是以时间为单位来度量的

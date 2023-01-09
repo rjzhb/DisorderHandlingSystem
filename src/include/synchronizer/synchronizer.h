@@ -13,7 +13,8 @@ class Synchronizer {
 public:
 
     //同步过程
-    void synchronize_stream(std::queue<Tuple> input_list);
+    auto synchronize_stream(std::queue<Tuple> input_list) -> void;
+
 private:
     //SyncBuf缓冲区映射
     std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_;

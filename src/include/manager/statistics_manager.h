@@ -34,12 +34,13 @@ public:
     //离散随机变量Dik的概率分布函数fDiK， Dik表示连接算子在k设置下接受相应流中一个元组的粗粒度延迟
     auto fDk(int d, int stream_id, int K) -> double;
 
-    void add_record(int stream_id, Tuple tuple);
-
-    void add_record(int stream_id, int T, int K);
-
     //获得离散随机变量Di的值
-    int get_D(int delay);
+    auto get_D(int delay) -> int;
+
+    auto add_record(int stream_id, Tuple tuple) -> void;
+
+    auto add_record(int stream_id, int T, int K) -> void;
+
 
 
 private:

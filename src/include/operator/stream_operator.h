@@ -14,7 +14,7 @@
 class StreamOperator {
 public:
 
-    void mswj_execution(std::queue<Tuple> input);
+    auto mswj_execution(std::queue<Tuple> input) -> void;
 
     auto can_join_(Tuple t1, Tuple t2) -> bool;
 
