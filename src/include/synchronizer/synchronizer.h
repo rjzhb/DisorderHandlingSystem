@@ -16,16 +16,21 @@ public:
     auto synchronize_stream(std::queue<Tuple> input_list) -> void;
 
 private:
+
     //SyncBuf缓冲区映射
     std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_;
-    //Tsync
-    int T_sync_{};
-    //stream的数量
-    int stream_count_;
-    //当前缓冲区拥有tuple的流的数量
-    int own_stream_{};
+
     //同步输出区
     std::queue<Tuple> output_;
+
+    //Tsync
+    int T_sync_{};
+
+    //stream的数量
+    int stream_count_;
+
+    //当前缓冲区拥有tuple的流的数量
+    int own_stream_{};
 
 
 };

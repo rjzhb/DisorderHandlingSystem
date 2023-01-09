@@ -20,19 +20,23 @@ public:
     auto disorder_handling() -> void;
 
 private:
+
     //缓冲区大小,相当于论文的K值,注：缓冲区大小并不是指集合的大小，而是以时间为单位来度量的
     size_t buffer_size_{};
+
     //当前时间(相当于论文的T值)
     int current_time_;
+
     //传输过来的流
     Stream *stream_;
+
     //缓冲区(用随时保持有序的红黑树)
     std::set<Tuple, TupleComparator> buffer_;
 
-//    //输出区
-//    std::queue<Tuple> output_list_;
-
+    //缓冲区管理器
     BufferSizeManager *buffer_size_manager_;
+
+    //数据统计管理器
     StatisticsManager *statistics_manager_;
 };
 

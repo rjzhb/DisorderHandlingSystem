@@ -19,10 +19,13 @@ public:
     auto can_join_(Tuple t1, Tuple t2) -> bool;
 
 private:
+
     //连接时的T
     int T_op_;
+
     //window map
     std::unordered_map<int, std::queue<Tuple>> window_map_;
+
     //结果元组
     std::queue<Tuple> result_;
 };
