@@ -4,9 +4,6 @@
 
 #include "synchronizer/synchronizer.h"
 
-int Synchronizer::get_Ksync(int stream_id) {
-    return sync_buffer_map_[stream_id].size();
-}
 
 //从k-slack发送过来的流
 void Synchronizer::synchronize_stream(std::queue<Tuple> input_list) {
