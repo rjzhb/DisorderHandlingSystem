@@ -13,6 +13,9 @@
 class StatisticsManager {
 public:
 
+    //获得Ksync
+    auto get_ksync(int stream_id) -> int;
+
     //论文中的函数γ(L,T)
     auto y(int stream_id, int L, int T) -> double;
 
@@ -24,14 +27,21 @@ public:
 
     void add_record(int stream_id, Tuple tuple);
 
+    void add_record(int stream_id, int T, int K);
+
     //获得离散随机变量Di的值
     int get_D(int delay);
-
 
 
 private:
     //历史流Si输入记录的映射
     std::unordered_map<int, std::vector<Tuple>> record_map_;
+
+    //历史流Si的T记录
+    std::unordered_map<int, int> T_map_;
+
+    //历史流的K记录
+    std::unordered_map<int, int> K_map_;
 
     //直方图映射
     std::unordered_map<int, std::vector<int>> histogram_map_;

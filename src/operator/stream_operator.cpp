@@ -5,7 +5,7 @@
 #include "operator/stream_operator.h"
 
 //连接条件,根据实际生产由程序员指定
-bool StreamOperator::can_join_(Tuple t1, Tuple t2) {
+auto StreamOperator::can_join_(Tuple t1, Tuple t2) -> bool {
     return true;
 }
 
@@ -30,7 +30,7 @@ void StreamOperator::mswj_execution(std::queue<Tuple> input) {
                 }
             }
 
-            //连接，暂时不考虑连接条件，连接条件由程序员写代码指定
+            //连接
             result_.push(tuple);
             for (auto it: window_map_) {
                 if (it.first == stream_id) {

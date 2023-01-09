@@ -9,11 +9,25 @@ void StatisticsManager::add_record(int stream_id, Tuple tuple) {
     record_map_[stream_id].push_back(tuple);
 }
 
+void StatisticsManager::add_record(int stream_id, int T, int K) {
+    T_map_[stream_id] = T;
+    K_map_[stream_id] = K;
+}
+
+
 //获得离散随机变量Di的值,如果delay(ei) ∈(kg,(k+1)g]，则Di=k+1
 int StatisticsManager::get_D(int delay) {
     return delay % g == 0 ? delay / g : delay / g + 1;
 }
 
+//获取Ksync的值，Ksync = iT - ki - min{iT - ki| i∈[1,m]}
+auto StatisticsManager::get_ksync(int stream_id) -> int {
+    int min_iT_ki = T_map_[stream_id] - K_map_[stream_id];
+    for (auto it: record_map_) {
+        min_iT_ki = std::min(min_iT_ki, T_map_[it.first] - K_map_[it.first]);
+    }
+    return T_map_[stream_id] - K_map_[stream_id] - min_iT_ki;
+}
 
 //概率分布函数fD
 auto StatisticsManager::fD(int d, int stream_id) -> double {
@@ -83,4 +97,6 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     histogram_map_[stream_id][d] = p_d;
     return p_d;
 }
+
+
 
