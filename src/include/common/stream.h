@@ -12,13 +12,12 @@
 class Stream {
 public:
 
-    int get_window_size() { return window_size_; }
+    auto get_window_size() -> int { return window_size_; }
 
-    int get_id() { return stream_id_; }
+    auto get_id() -> int { return stream_id_; }
 
-    std::queue<Tuple> get_tuple_list() { return tuple_list_; }
+    auto get_tuple_list() -> std::queue<Tuple> { return tuple_list_; }
 
-    void syn_res_push(Tuple tuple) { syn_res_.push(tuple); }
 
 private:
     //论文中的Wi

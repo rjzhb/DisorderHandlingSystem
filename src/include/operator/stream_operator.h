@@ -16,7 +16,7 @@ public:
 
     void mswj_execution(std::queue<Tuple> input);
 
-    bool can_join_(Tuple t1, Tuple t2);
+    auto can_join_(Tuple t1, Tuple t2) -> bool;
 
 private:
     //连接时的T
