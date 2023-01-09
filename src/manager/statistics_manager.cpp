@@ -9,6 +9,12 @@ void StatisticsManager::add_record(int stream_id, Tuple tuple) {
     record_map_[stream_id].push_back(tuple);
 }
 
+//获得离散随机变量Di的值,如果delay(ei) ∈(kg,(k+1)g]，则Di=k+1
+int StatisticsManager::get_D(int delay) {
+    return delay % g == 0 ? delay / g : delay / g + 1;
+}
+
+
 //概率分布函数fD
 auto StatisticsManager::fD(int d, int stream_id) -> double {
     int R_stat = get_R_stat(stream_id);
@@ -76,10 +82,5 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     //更新直方图
     histogram_map_[stream_id][d] = p_d;
     return p_d;
-}
-
-//获得离散随机变量Di的值
-int StatisticsManager::get_D(int delay) {
-    return 0;
 }
 

@@ -14,6 +14,9 @@ public:
 
     //同步过程
     void synchronize_stream(std::queue<Tuple> input_list);
+
+    //获取某个流的Ksync
+    int get_Ksync(int stream_id);
 private:
     //SyncBuf缓冲区映射
     std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_;
