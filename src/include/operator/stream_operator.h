@@ -18,6 +18,8 @@ public:
 
     auto can_join_(Tuple t1, Tuple t2) -> bool;
 
+    auto get_result() -> std::queue<Tuple>;
+
 private:
 
     //连接时的T

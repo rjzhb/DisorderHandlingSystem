@@ -9,6 +9,10 @@ auto StreamOperator::can_join_(Tuple t1, Tuple t2) -> bool {
     return true;
 }
 
+auto StreamOperator::get_result() -> std::queue<Tuple> {
+    return result_;
+}
+
 void StreamOperator::mswj_execution(std::queue<Tuple> input) {
     while (!input.empty()) {
         Tuple tuple = input.front();
@@ -54,6 +58,7 @@ void StreamOperator::mswj_execution(std::queue<Tuple> input) {
     }
 
 }
+
 
 
 
