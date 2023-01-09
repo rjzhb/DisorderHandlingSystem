@@ -12,6 +12,7 @@ void StatisticsManager::add_record(int stream_id, Tuple tuple) {
 void StatisticsManager::add_record(int stream_id, int T, int K) {
     T_map_[stream_id] = T;
     K_map_[stream_id] = K;
+    ksync_map_[stream_id].push_back(get_ksync(stream_id));
 }
 
 
@@ -29,6 +30,37 @@ auto StatisticsManager::get_ksync(int stream_id) -> int {
     return T_map_[stream_id] - K_map_[stream_id] - min_iT_ki;
 }
 
+
+//获取平均值，目的是为了预测未来的k_sync
+auto StatisticsManager::get_avg_ksync(int stream_id) -> int {
+    int sum_ksync_i = 0;
+    int R_stat = get_R_stat(stream_id);
+    std::vector<int> ksync_list = ksync_map_[stream_id];
+
+    //找出R_stat范围内的ksync_i的总和，再取平均值
+    for (int i = ksync_list.size() - 1; i >= ksync_list.size() - R_stat; i--) {
+        sum_ksync_i += ksync_map_[stream_id][i];
+    }
+    int avg_ksync_i = sum_ksync_i / R_stat;
+
+    return avg_ksync_i;
+}
+
+//公式见论文page 7
+auto StatisticsManager::get_future_ksync(int stream_id) -> int {
+    int avg_ksync_i = get_avg_ksync(stream_id);
+    int min_ksync = INT8_MAX;
+    //找到j != i的所有avg_ksync的最小值
+    for (auto it: ksync_map_) {
+        if (it.first == stream_id) {
+            continue;
+        }
+        min_ksync = std::min(min_ksync, get_avg_ksync(it.first));
+    }
+    return avg_ksync_i - min_ksync;
+}
+
+
 //概率分布函数fD
 auto StatisticsManager::fD(int d, int stream_id) -> double {
     int R_stat = get_R_stat(stream_id);
@@ -39,7 +71,7 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 
     std::vector<Tuple> record = record_map_[stream_id];
 
-    //取出record里面R_stat大小范围的数据
+    //取出record里面R_stat大小范围的数据,并计算频率，用频率估计概率
     std::map<int, int> rate_map;
     for (int i = record.size() - 1; i >= record.size() - R_stat; i--) {
         int Di = get_D(record[i].delay);
@@ -98,5 +130,17 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     return p_d;
 }
 
+auto StatisticsManager::fDk(int d, int stream_id, int K) -> double {
+    int k_sync = get_future_ksync(stream_id);
+    double res = 0;
 
+    if (d == 0) {
+        for (int i = 0; i <= (k_sync + K) / g; i++) {
+            res += fD(i, stream_id);
+        }
+    } else {
+        res = fD(d + (K + k_sync) / g, stream_id);
+    }
 
+    return res;
+}
