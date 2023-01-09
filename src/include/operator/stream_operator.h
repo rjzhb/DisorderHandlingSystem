@@ -7,18 +7,21 @@
 
 
 #include <queue>
+#include <unordered_map>
 #include "common/define.h"
 #include "common/stream.h"
 
 class StreamOperator {
 public:
 
-    void mswj_execution(std::vector<Stream *> stream_list_);
+    void mswj_execution(std::queue<Tuple> input);
 
 private:
     //连接时的T
     int T_op_;
-    //
+    //window map
+    std::unordered_map<int, std::queue<Tuple>> window_map_;
+
 };
 
 

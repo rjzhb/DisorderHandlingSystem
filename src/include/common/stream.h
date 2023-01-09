@@ -27,8 +27,6 @@ private:
     int stream_id_;
     //元组
     std::queue<Tuple> tuple_list_;
-    //同步完成的元组
-    std::queue<Tuple> syn_res_;
 };
 
 

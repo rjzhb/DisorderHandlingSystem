@@ -13,7 +13,7 @@ class Synchronizer {
 public:
 
     //同步过程
-    void synchronize_stream(Stream* stream, std::queue<Tuple> input_list);
+    void synchronize_stream(std::queue<Tuple> input_list);
 private:
     //SyncBuf缓冲区映射
     std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_;
@@ -23,7 +23,8 @@ private:
     int stream_count_;
     //当前缓冲区拥有tuple的流的数量
     int own_stream_{};
-
+    //同步输出区
+    std::queue<Tuple> output_;
 
 
 };
