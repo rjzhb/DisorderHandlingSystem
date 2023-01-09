@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o"
   "CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o"
   "CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o"
+  "CMakeFiles/DisorderHandlingSystem.dir/src/profiler/tuple_productivity_profiler.cpp.o"
   "CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.o"
   "DisorderHandlingSystem"
   "DisorderHandlingSystem.pdb"

@@ -285,6 +285,33 @@ src/operator/stream_operator.cpp.s:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.s
 .PHONY : src/operator/stream_operator.cpp.s
 
+src/profiler/tuple_productivity_profiler.o: src/profiler/tuple_productivity_profiler.cpp.o
+
+.PHONY : src/profiler/tuple_productivity_profiler.o
+
+# target to build an object file
+src/profiler/tuple_productivity_profiler.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/profiler/tuple_productivity_profiler.cpp.o
+.PHONY : src/profiler/tuple_productivity_profiler.cpp.o
+
+src/profiler/tuple_productivity_profiler.i: src/profiler/tuple_productivity_profiler.cpp.i
+
+.PHONY : src/profiler/tuple_productivity_profiler.i
+
+# target to preprocess a source file
+src/profiler/tuple_productivity_profiler.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/profiler/tuple_productivity_profiler.cpp.i
+.PHONY : src/profiler/tuple_productivity_profiler.cpp.i
+
+src/profiler/tuple_productivity_profiler.s: src/profiler/tuple_productivity_profiler.cpp.s
+
+.PHONY : src/profiler/tuple_productivity_profiler.s
+
+# target to generate assembly for a file
+src/profiler/tuple_productivity_profiler.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/profiler/tuple_productivity_profiler.cpp.s
+.PHONY : src/profiler/tuple_productivity_profiler.cpp.s
+
 src/synchronizer/synchronizer.o: src/synchronizer/synchronizer.cpp.o
 
 .PHONY : src/synchronizer/synchronizer.o
@@ -339,6 +366,9 @@ help:
 	@echo "... src/operator/stream_operator.o"
 	@echo "... src/operator/stream_operator.i"
 	@echo "... src/operator/stream_operator.s"
+	@echo "... src/profiler/tuple_productivity_profiler.o"
+	@echo "... src/profiler/tuple_productivity_profiler.i"
+	@echo "... src/profiler/tuple_productivity_profiler.s"
 	@echo "... src/synchronizer/synchronizer.o"
 	@echo "... src/synchronizer/synchronizer.i"
 	@echo "... src/synchronizer/synchronizer.s"

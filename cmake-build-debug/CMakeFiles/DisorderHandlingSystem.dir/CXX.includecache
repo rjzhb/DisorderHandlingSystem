@@ -8,6 +8,12 @@
 
 ../src/include/common/define.h
 
+../src/include/common/stream.h
+queue
+-
+common/define.h
+../src/include/common/common/define.h
+
 ../src/include/kslack/k_slack.h
 cstddef
 -
@@ -21,6 +27,8 @@ manager/buffer_size_manager.h
 ../src/include/kslack/manager/buffer_size_manager.h
 manager/statistics_manager.h
 ../src/include/kslack/manager/statistics_manager.h
+common/stream.h
+../src/include/kslack/common/stream.h
 
 ../src/include/manager/buffer_size_manager.h
 
@@ -32,6 +40,26 @@ unordered_map
 common/define.h
 ../src/include/manager/common/define.h
 
+../src/include/operator/stream_operator.h
+queue
+-
+unordered_map
+-
+common/define.h
+../src/include/operator/common/define.h
+common/stream.h
+../src/include/operator/common/stream.h
+
+../src/include/synchronizer/synchronizer.h
+vector
+-
+kslack/k_slack.h
+../src/include/synchronizer/kslack/k_slack.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp
+common/stream.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/common/common/stream.h
+
 /home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
 kslack/k_slack.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
@@ -41,6 +69,16 @@ manager/buffer_size_manager.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/buffer_size_manager.h
 
 /home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp
+map
+-
 manager/statistics_manager.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/statistics_manager.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp
+operator/stream_operator.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/operator/operator/stream_operator.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp
+synchronizer/synchronizer.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer/synchronizer.h
 

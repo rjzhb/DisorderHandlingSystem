@@ -90,10 +90,10 @@
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
-		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.h">
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/common/define.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
-		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/common/define.h">
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/common/stream.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/kslack/k_slack.h">
@@ -121,6 +121,12 @@
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp">
+			<Option target="DisorderHandlingSystem"/>
+		</Unit>
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp">
+			<Option target="DisorderHandlingSystem"/>
+		</Unit>
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp">
