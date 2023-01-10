@@ -7,7 +7,8 @@
 
 
 #include <queue>
-#include "common/define.h"
+#include "define.h"
+
 
 class Stream {
 public:

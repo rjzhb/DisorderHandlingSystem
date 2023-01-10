@@ -5,8 +5,9 @@
 #ifndef DISORDERHANDLINGSYSTEM_DEFINE_H
 #define DISORDERHANDLINGSYSTEM_DEFINE_H
 
-#include "stream.h"
+
 #include <unordered_map>
+#include "stream.h"
 
 //系统参数定义
 //搜索粒度
