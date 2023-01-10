@@ -108,6 +108,9 @@
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/operator/stream_operator.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/profiler/tuple_productivity_profiler.h">
+			<Option target="DisorderHandlingSystem"/>
+		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/synchronizer/synchronizer.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
@@ -124,9 +127,6 @@
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp">
-			<Option target="DisorderHandlingSystem"/>
-		</Unit>
-		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp">

@@ -5,13 +5,24 @@
 #ifndef DISORDERHANDLINGSYSTEM_DEFINE_H
 #define DISORDERHANDLINGSYSTEM_DEFINE_H
 
+#include "stream.h"
+#include <unordered_map>
+
 //系统参数定义
 //搜索粒度
 constexpr int g{};
+
 //自适应时间间隔
 constexpr int L{};
+
 //最大延迟
 constexpr int MAX_DELAY = 100;
+
+//basic window size
+constexpr int b{};
+
+//流id和stream对象的映射
+std::unordered_map<int, Stream*> stream_map;
 
 struct Tuple {
     //表示来自输入流Si

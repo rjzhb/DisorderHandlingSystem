@@ -19,13 +19,18 @@ void StreamOperator::mswj_execution(std::queue<Tuple> input) {
         input.pop();
         int stream_id = tuple.streamId;
 
+
         if (tuple.ts >= T_op_) {
             T_op_ = tuple.ts;
 
             for (auto it: window_map_) {
+                //统计window内元组数量数据
+                statistics_manager_->add_join_record(stream_id, it.second.size());
+
                 if (it.first == stream_id) {
                     continue;
                 }
+
                 while (!it.second.empty()) {
                     Tuple tuple_j = it.second.front();
                     if (tuple_j.ts < tuple.ts - it.second.size()) {

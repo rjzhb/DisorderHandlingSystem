@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include "common/define.h"
 #include "common/stream.h"
+#include "manager/statistics_manager.h"
 
 class StreamOperator {
 public:
@@ -30,6 +31,9 @@ private:
 
     //结果元组
     std::queue<Tuple> result_;
+
+    //数据统计管理器
+    StatisticsManager *statistics_manager_;
 };
 
 

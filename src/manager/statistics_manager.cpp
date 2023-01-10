@@ -15,6 +15,9 @@ void StatisticsManager::add_record(int stream_id, int T, int K) {
     ksync_map_[stream_id].push_back(get_ksync(stream_id));
 }
 
+auto StatisticsManager::add_join_record(int stream_id, int count) -> void {
+    join_record_map_[stream_id] = count;
+}
 
 //获得离散随机变量Di的值,如果delay(ei) ∈(kg,(k+1)g]，则Di=k+1
 int StatisticsManager::get_D(int delay) {
@@ -50,12 +53,17 @@ auto StatisticsManager::get_avg_ksync(int stream_id) -> int {
 auto StatisticsManager::get_future_ksync(int stream_id) -> int {
     int avg_ksync_i = get_avg_ksync(stream_id);
     int min_ksync = INT8_MAX;
+
     //找到j != i的所有avg_ksync的最小值
     for (auto it: ksync_map_) {
         if (it.first == stream_id) {
             continue;
         }
         min_ksync = std::min(min_ksync, get_avg_ksync(it.first));
+    }
+
+    if (min_ksync == INT8_MAX) {
+        min_ksync = 0;
     }
     return avg_ksync_i - min_ksync;
 }
@@ -82,8 +90,10 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
         histogram_map_[stream_id].reserve(MAX_DELAY);
     }
 
+    double sum_p = 0;
     for (auto it: rate_map) {
         histogram_map_[stream_id][it.first] = it.second * 1.0 / R_stat;
+        sum_p += it.second * 1.0 / R_stat;
     }
 
     //折线插值估计 , 双指针中心扩散法
@@ -125,9 +135,19 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     //此时left和right分别指向了有实际数据的点，可用折线估计概率
     //直线方程： y =  (p_r - p_l)/(right - left)(x - left) + p_l
     double p_d = (p_r - p_l) / (right - left) * (d - left) + p_l;
+
     //更新直方图
     histogram_map_[stream_id][d] = p_d;
-    return p_d;
+
+    //归一化
+    sum_p += p_d;
+    for (auto it: histogram_map_[stream_id]) {
+        if (it != 0) {
+            it /= sum_p;
+        }
+    }
+
+    return histogram_map_[stream_id][d];
 }
 
 auto StatisticsManager::fDk(int d, int stream_id, int K) -> double {
@@ -144,3 +164,25 @@ auto StatisticsManager::fDk(int d, int stream_id, int K) -> double {
 
     return res;
 }
+
+auto StatisticsManager::wil(int l, int stream_id, int K) -> int {
+    int wi = stream_map[stream_id]->get_window_size();
+    int ni = wi / b;
+    int res = 0;
+    double ri = join_record_map_[stream_id] * 1.0 / wi;
+
+    if (l <= ni - 1 && l >= 1) {
+        for (int i = 0; i < (l - 1) * b / g; i++) {
+            res += fDk(i, stream_id, K);
+        }
+        res = static_cast<int>(ri * b * res);
+    } else if (l == ni) {
+        for (int i = 0; i < (ni - 1) * b / g; i++) {
+            res += fDk(i, stream_id, K);
+        }
+        res = static_cast<int>(ri * (wi - (ni - 1) * b) * res);
+    }
+
+    return res;
+}
+
