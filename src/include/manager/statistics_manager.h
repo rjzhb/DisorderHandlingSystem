@@ -23,9 +23,6 @@ public:
     //估计未来的ksync
     auto get_future_ksync(int stream_id) -> int;
 
-    //论文中的函数γ(L,T)
-    auto y(int stream_id, int L, int K) -> double;
-
     //参考文献[25]的自适应窗口方法, 传入的主要参数待定，需阅读文献[25]
     auto get_R_stat(int stream_id) -> int;
 
@@ -42,6 +39,8 @@ public:
 
     auto add_record(int stream_id, int T, int K) -> void;
 
+    //获得元组最大delay
+    auto get_maxD(int stream_id) -> int;
 
 private:
     //历史流Si输入记录的映射

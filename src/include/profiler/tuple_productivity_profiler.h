@@ -7,6 +7,7 @@
 
 
 #include <unordered_map>
+#include <map>
 
 class TupleProductivityProfiler {
 public:
@@ -19,16 +20,18 @@ public:
 
     auto update_join_res(int Di, int res) -> void;
 
+    auto get_select_ratio(int K) -> double;
 private:
 
     //到达join operator的元组数量记录
     std::unordered_map<int, int> join_record_map_;
 
+    //论文没讲清楚的点， key究竟是delay还是随机变量Di？
     //the join operator records both the number of cross-join result size,
-    std::unordered_map<int, int> cross_join_map_;
+    std::map<int, int> cross_join_map_;
 
-    //the number of join results,
-    std::unordered_map<int, int> join_result_map_;
+    //the number of join results, using map for sorting
+    std::map<int, int> join_result_map_;
 };
 
 

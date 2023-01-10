@@ -15,6 +15,17 @@ void StatisticsManager::add_record(int stream_id, int T, int K) {
     ksync_map_[stream_id].push_back(get_ksync(stream_id));
 }
 
+
+auto StatisticsManager::get_maxD(int stream_id) -> int {
+    int max_D = 0;
+    for (auto it: record_map_[stream_id]) {
+        max_D = std::max(max_D, it.delay);
+    }
+    return 0;
+
+
+}
+
 //获取Ksync的值，Ksync = iT - ki - min{iT - ki| i∈[1,m]}
 auto StatisticsManager::get_ksync(int stream_id) -> int {
     int min_iT_ki = T_map_[stream_id] - K_map_[stream_id];
@@ -164,12 +175,12 @@ auto StatisticsManager::wil(int l, int stream_id, int K) -> int {
     double ri = productivity_profiler_->get_join_record_map()[stream_id] * 1.0 / wi;
 
     if (l <= ni - 1 && l >= 1) {
-        for (int i = 0; i < (l - 1) * b / g; i++) {
+        for (int i = 0; i <= (l - 1) * b / g; i++) {
             res += fDk(i, stream_id, K);
         }
         res = static_cast<int>(ri * b * res);
     } else if (l == ni) {
-        for (int i = 0; i < (ni - 1) * b / g; i++) {
+        for (int i = 0; i <= (ni - 1) * b / g; i++) {
             res += fDk(i, stream_id, K);
         }
         res = static_cast<int>(ri * (wi - (ni - 1) * b) * res);
@@ -177,4 +188,5 @@ auto StatisticsManager::wil(int l, int stream_id, int K) -> int {
 
     return res;
 }
+
 
