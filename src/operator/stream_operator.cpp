@@ -75,7 +75,6 @@ void StreamOperator::mswj_execution(std::queue<Tuple> input) {
         } else if (tuple.ts > T_op_ - window_map_[stream_id].size()) {
             window_map_[stream_id].push(tuple);
         }
-        //todo: Invoke the Tuple-Productivity Profiler to record the (estimated) productivity of tuple
     }
 
 }
