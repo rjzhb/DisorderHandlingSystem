@@ -17,13 +17,19 @@ constexpr int g{};
 constexpr int L{};
 
 //最大延迟
-constexpr int MAX_DELAY = 100;
+constexpr int maxDelay = 100;
+
+//用户期待的recall率
+constexpr double userRecall{};
+
+//用户设定的时间P
+constexpr int P{};
 
 //basic window size
 constexpr int b{};
 
 //流id和stream对象的映射
-std::unordered_map<int, Stream*> stream_map;
+std::unordered_map<int, Stream *> stream_map;
 
 //获得离散随机变量Di(粗粒度延迟)的值
 auto get_D(int delay) -> int;

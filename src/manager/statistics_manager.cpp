@@ -89,7 +89,7 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     }
     //用直方图模拟
     if (histogram_map_.find(stream_id) == histogram_map_.end()) {
-        histogram_map_[stream_id].reserve(MAX_DELAY);
+        histogram_map_[stream_id].reserve(maxDelay);
     }
 
     double sum_p = 0;

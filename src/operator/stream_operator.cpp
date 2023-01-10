@@ -20,7 +20,7 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
         int stream_id = tuple.streamId;
 
         //计算Di
-        int Di = get_D(tuple.delay);
+        int delay = tuple.delay;
 
         //计算cross-join的结果大小
         int cross_join = 1;
@@ -47,7 +47,7 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
             }
 
             //更新cross_join_map
-            productivity_profiler_->update_cross_join(Di, cross_join);
+            productivity_profiler_->update_cross_join(delay, cross_join);
 
             //连接
             int res_size = 1;
@@ -69,7 +69,7 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
             }
 
             //更新join result map
-            productivity_profiler_->update_join_res(Di, res_size);
+            productivity_profiler_->update_join_res(delay, res_size);
 
             window_map_[stream_id].push(tuple);
         } else if (tuple.ts > T_op_ - window_map_[stream_id].size()) {

@@ -21,6 +21,8 @@ public:
     auto update_join_res(int Di, int res) -> void;
 
     auto get_select_ratio(int K) -> double;
+
+    auto get_requirement_recall(int L) -> double;
 private:
 
     //到达join operator的元组数量记录
