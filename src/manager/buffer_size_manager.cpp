@@ -7,20 +7,19 @@
 /**
  *
  * @param L  - buffer-size manager的自适应时间间隔
- * @param b basic window的size
  * @param g  K*搜索粒度
  * @return
  */
-auto BufferSizeManager::k_search(int L, int b, int g) -> int {
-    /**
-     *     TODO:需要获得 current maximum tuple delay（MAXDH)
-     *     TODO:需要获得instant recall requirement  Γ‘
-     *     TODO:需要调用γ(L, K)
-     */
-    return 0;
+auto BufferSizeManager::k_search(int stream_id) -> int {
+    int max_DH = statistics_manager_->get_maxD(stream_id);
+    int k = 0;
+    while (k <= max_DH && y(stream_id, k) < productivity_profiler_->get_requirement_recall()) {
+        k = k + g;
+    }
+    return k;
 }
 
-auto BufferSizeManager::y(int stream_id, int L, int K) -> double {
+auto BufferSizeManager::y(int stream_id, int K) -> double {
     //SEL比值
     double sel_radio = productivity_profiler_->get_select_ratio(K);
 

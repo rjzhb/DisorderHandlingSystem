@@ -38,6 +38,7 @@ auto KSlack::disorder_handling() -> void {
         //加入tuple进入buffer
         buffer_.insert(tuple);
 
-        //TODO: 用BufferManager动态更新buffer_size_(论文中的K), 把事情交给BufferManager
+        //动态更新K值
+        buffer_size_ = buffer_size_manager_->k_search(stream_->get_id());
     }
 }
