@@ -5,7 +5,7 @@
 #include "kslack/k_slack.h"
 
 //K-Slack算法对无序流进行处理
-void KSlack::disorder_handling() {
+auto KSlack::disorder_handling() -> void {
     std::queue<Tuple> output_list_;
     while (!stream_->get_tuple_list().empty()) {
         Tuple tuple = stream_->get_tuple_list().front();

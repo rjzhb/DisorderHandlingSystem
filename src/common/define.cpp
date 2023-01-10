@@ -4,6 +4,6 @@
 #include "common/define.h"
 
 //获得离散随机变量Di的值,如果delay(ei) ∈(kg,(k+1)g]，则Di=k+1
-int get_D(int delay) {
+auto get_D(int delay) -> int {
     return delay % g == 0 ? delay / g : delay / g + 1;
 }

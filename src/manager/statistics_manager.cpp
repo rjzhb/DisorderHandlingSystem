@@ -5,11 +5,11 @@
 #include <map>
 #include "manager/statistics_manager.h"
 
-void StatisticsManager::add_record(int stream_id, Tuple tuple) {
+auto StatisticsManager::add_record(int stream_id, Tuple tuple) -> void {
     record_map_[stream_id].push_back(tuple);
 }
 
-void StatisticsManager::add_record(int stream_id, int T, int K) {
+auto StatisticsManager::add_record(int stream_id, int T, int K) -> void {
     T_map_[stream_id] = T;
     K_map_[stream_id] = K;
     ksync_map_[stream_id].push_back(get_ksync(stream_id));

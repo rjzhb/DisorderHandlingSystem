@@ -6,7 +6,7 @@
 
 
 //从k-slack发送过来的流
-void Synchronizer::synchronize_stream(std::queue<Tuple> input_list) {
+auto Synchronizer::synchronize_stream(std::queue<Tuple> input_list) -> void {
     int stream_id = input_list.front().streamId;
     while (!input_list.empty()) {
         Tuple tuple = input_list.front();

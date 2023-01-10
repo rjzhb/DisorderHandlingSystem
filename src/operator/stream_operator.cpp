@@ -13,7 +13,7 @@ auto StreamOperator::get_result() -> std::queue<Tuple> {
     return result_;
 }
 
-void StreamOperator::mswj_execution(std::queue<Tuple> input) {
+auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
     while (!input.empty()) {
         Tuple tuple = input.front();
         input.pop();
