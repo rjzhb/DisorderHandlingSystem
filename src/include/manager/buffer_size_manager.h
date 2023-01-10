@@ -20,8 +20,10 @@ public:
 
 private:
 
+    //数据统计器
     StatisticsManager *statistics_manager_;
 
+    //元组生产力
     TupleProductivityProfiler *productivity_profiler_;
 
 };
