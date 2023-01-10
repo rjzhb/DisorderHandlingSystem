@@ -15,15 +15,6 @@ void StatisticsManager::add_record(int stream_id, int T, int K) {
     ksync_map_[stream_id].push_back(get_ksync(stream_id));
 }
 
-auto StatisticsManager::add_join_record(int stream_id, int count) -> void {
-    join_record_map_[stream_id] = count;
-}
-
-//获得离散随机变量Di的值,如果delay(ei) ∈(kg,(k+1)g]，则Di=k+1
-int StatisticsManager::get_D(int delay) {
-    return delay % g == 0 ? delay / g : delay / g + 1;
-}
-
 //获取Ksync的值，Ksync = iT - ki - min{iT - ki| i∈[1,m]}
 auto StatisticsManager::get_ksync(int stream_id) -> int {
     int min_iT_ki = T_map_[stream_id] - K_map_[stream_id];
@@ -132,6 +123,7 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 
     double p_l = histogram_map_[stream_id][left];
     double p_r = histogram_map_[stream_id][right];
+
     //此时left和right分别指向了有实际数据的点，可用折线估计概率
     //直线方程： y =  (p_r - p_l)/(right - left)(x - left) + p_l
     double p_d = (p_r - p_l) / (right - left) * (d - left) + p_l;
@@ -169,7 +161,7 @@ auto StatisticsManager::wil(int l, int stream_id, int K) -> int {
     int wi = stream_map[stream_id]->get_window_size();
     int ni = wi / b;
     int res = 0;
-    double ri = join_record_map_[stream_id] * 1.0 / wi;
+    double ri = productivity_profiler_->get_join_record_map()[stream_id] * 1.0 / wi;
 
     if (l <= ni - 1 && l >= 1) {
         for (int i = 0; i < (l - 1) * b / g; i++) {

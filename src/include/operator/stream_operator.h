@@ -32,8 +32,8 @@ private:
     //结果元组
     std::queue<Tuple> result_;
 
-    //数据统计管理器
-    StatisticsManager *statistics_manager_;
+    //元组生产力监视器
+    TupleProductivityProfiler *productivity_profiler_;
 };
 
 

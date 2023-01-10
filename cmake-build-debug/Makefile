@@ -150,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/common/define.o: src/common/define.cpp.o
+
+.PHONY : src/common/define.o
+
+# target to build an object file
+src/common/define.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/common/define.cpp.o
+.PHONY : src/common/define.cpp.o
+
+src/common/define.i: src/common/define.cpp.i
+
+.PHONY : src/common/define.i
+
+# target to preprocess a source file
+src/common/define.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/common/define.cpp.i
+.PHONY : src/common/define.cpp.i
+
+src/common/define.s: src/common/define.cpp.s
+
+.PHONY : src/common/define.s
+
+# target to generate assembly for a file
+src/common/define.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/common/define.cpp.s
+.PHONY : src/common/define.cpp.s
+
 src/common/stream.o: src/common/stream.cpp.o
 
 .PHONY : src/common/stream.o
@@ -351,6 +378,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/common/define.o"
+	@echo "... src/common/define.i"
+	@echo "... src/common/define.s"
 	@echo "... src/common/stream.o"
 	@echo "... src/common/stream.i"
 	@echo "... src/common/stream.s"

@@ -9,6 +9,7 @@
 #include <vector>
 #include <unordered_map>
 #include "common/define.h"
+#include "profiler/tuple_productivity_profiler.h"
 
 class StatisticsManager {
 public:
@@ -28,9 +29,6 @@ public:
     //参考文献[25]的自适应窗口方法, 传入的主要参数待定，需阅读文献[25]
     auto get_R_stat(int stream_id) -> int;
 
-    //获得离散随机变量Di的值
-    auto get_D(int delay) -> int;
-
     //离散随机变量Di的概率分布函数fDi
     auto fD(int d, int stream_id) -> double;
 
@@ -43,8 +41,6 @@ public:
     auto add_record(int stream_id, Tuple tuple) -> void;
 
     auto add_record(int stream_id, int T, int K) -> void;
-
-    auto add_join_record(int stream_id, int count) -> void;
 
 
 private:
@@ -60,12 +56,11 @@ private:
     //保存所有的K_sync，方便抽取样本预测未来的ksync
     std::unordered_map<int, std::vector<int>> ksync_map_;
 
-    //到达join operator的元组数量记录
-    std::unordered_map<int, int> join_record_map_;
-
     //直方图映射
     std::unordered_map<int, std::vector<double>> histogram_map_;
 
+    //元组生产力
+    TupleProductivityProfiler *productivity_profiler_;
 };
 
 

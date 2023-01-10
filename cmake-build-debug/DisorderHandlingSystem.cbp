@@ -87,6 +87,9 @@
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/main.cpp">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/common/define.cpp">
+			<Option target="DisorderHandlingSystem"/>
+		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>

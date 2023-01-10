@@ -24,6 +24,9 @@ constexpr int b{};
 //流id和stream对象的映射
 std::unordered_map<int, Stream*> stream_map;
 
+//获得离散随机变量Di(粗粒度延迟)的值
+auto get_D(int delay) -> int;
+
 struct Tuple {
     //表示来自输入流Si
     int streamId;
