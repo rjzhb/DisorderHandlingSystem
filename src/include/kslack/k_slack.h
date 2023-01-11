@@ -13,6 +13,7 @@
 #include "manager/buffer_size_manager.h"
 #include "manager/statistics_manager.h"
 #include "common/stream.h"
+#include "synchronizer/synchronizer.h"
 
 class KSlack {
 public:
@@ -38,6 +39,9 @@ private:
 
     //数据统计管理器
     StatisticsManager *statistics_manager_;
+
+    //同步器
+    Synchronizer *synchronizer_;
 };
 
 

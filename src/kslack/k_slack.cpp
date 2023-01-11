@@ -41,4 +41,7 @@ auto KSlack::disorder_handling() -> void {
         //动态更新K值
         buffer_size_ = buffer_size_manager_->k_search(stream_->get_id());
     }
+
+    //将输出元组送入同步器
+    synchronizer_->synchronize_stream(output_list_);
 }

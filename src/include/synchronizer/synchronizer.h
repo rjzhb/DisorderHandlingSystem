@@ -7,7 +7,9 @@
 
 
 #include <vector>
-#include "kslack/k_slack.h"
+#include <queue>
+#include "common/define.h"
+#include "operator/stream_operator.h"
 
 class Synchronizer {
 public:
@@ -31,8 +33,6 @@ private:
 
     //当前缓冲区拥有tuple的流的数量
     int own_stream_{};
-
-
 };
 
 
