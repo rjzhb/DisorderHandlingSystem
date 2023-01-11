@@ -10,6 +10,7 @@
 #include <queue>
 #include "common/define.h"
 #include "operator/stream_operator.h"
+#include <set>
 
 class Synchronizer {
 public:
