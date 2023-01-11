@@ -81,6 +81,10 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 
     std::vector<Tuple> record = record_map_[stream_id];
 
+    if (histogram_map_[stream_id][d] != 0) {
+        return histogram_map_[stream_id][d];
+    }
+
     //取出record里面R_stat大小范围的数据,并计算频率，用频率估计概率
     std::map<int, int> rate_map;
     for (int i = record.size() - 1; i >= record.size() - R_stat; i--) {

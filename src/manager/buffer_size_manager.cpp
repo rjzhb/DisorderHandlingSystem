@@ -8,7 +8,6 @@
  *
  * @param L  - buffer-size manager的自适应时间间隔
  * @param g  K*搜索粒度
- * @return
  */
 auto BufferSizeManager::k_search(int stream_id) -> int {
     int max_DH = statistics_manager_->get_maxD(stream_id);
