@@ -5,8 +5,9 @@
 #ifndef DISORDERHANDLINGSYSTEM_STREAM_H
 #define DISORDERHANDLINGSYSTEM_STREAM_H
 
-
 #include <queue>
+
+
 
 struct Tuple {
     //表示来自输入流Si
