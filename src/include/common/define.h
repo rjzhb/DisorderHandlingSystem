@@ -37,22 +37,4 @@ std::unordered_map<int, Stream *> stream_map;
 //获得离散随机变量Di(粗粒度延迟)的值
 auto get_D(int delay) -> int;
 
-struct Tuple {
-    //表示来自输入流Si
-    int streamId;
-    //第几个到达的元组
-    int id;
-    //时间戳
-    int ts;
-    //延迟
-    int delay;
-};
-
-struct TupleComparator {
-    //按到达时间来排序
-    bool operator()(Tuple e1, Tuple e2) {
-        return e1.ts == e2.ts ? e1.id < e2.id : e1.ts < e2.ts;
-    }
-};
-
 #endif //DISORDERHANDLINGSYSTEM_DEFINE_H

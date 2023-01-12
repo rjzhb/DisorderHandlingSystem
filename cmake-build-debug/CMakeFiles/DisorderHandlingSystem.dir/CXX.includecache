@@ -7,12 +7,14 @@
 #IncludeRegexTransform: 
 
 ../src/include/common/define.h
+unordered_map
+-
+stream.h
+../src/include/common/stream.h
 
 ../src/include/common/stream.h
 queue
 -
-common/define.h
-../src/include/common/common/define.h
 
 ../src/include/kslack/k_slack.h
 cstddef
@@ -29,8 +31,12 @@ manager/statistics_manager.h
 ../src/include/kslack/manager/statistics_manager.h
 common/stream.h
 ../src/include/kslack/common/stream.h
+synchronizer/synchronizer.h
+../src/include/kslack/synchronizer/synchronizer.h
 
 ../src/include/manager/buffer_size_manager.h
+statistics_manager.h
+../src/include/manager/statistics_manager.h
 
 ../src/include/manager/statistics_manager.h
 vector
@@ -39,6 +45,8 @@ unordered_map
 -
 common/define.h
 ../src/include/manager/common/define.h
+profiler/tuple_productivity_profiler.h
+../src/include/manager/profiler/tuple_productivity_profiler.h
 
 ../src/include/operator/stream_operator.h
 queue
@@ -49,12 +57,30 @@ common/define.h
 ../src/include/operator/common/define.h
 common/stream.h
 ../src/include/operator/common/stream.h
+manager/statistics_manager.h
+../src/include/operator/manager/statistics_manager.h
+
+../src/include/profiler/tuple_productivity_profiler.h
+unordered_map
+-
+map
+-
 
 ../src/include/synchronizer/synchronizer.h
 vector
 -
-kslack/k_slack.h
-../src/include/synchronizer/kslack/k_slack.h
+queue
+-
+common/define.h
+../src/include/synchronizer/common/define.h
+operator/stream_operator.h
+../src/include/synchronizer/operator/stream_operator.h
+set
+-
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/common/define.cpp
+common/define.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/common/common/define.h
 
 /home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp
 common/stream.h
@@ -71,12 +97,22 @@ manager/buffer_size_manager.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp
 map
 -
+list
+-
+complex
+-
 manager/statistics_manager.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/statistics_manager.h
 
 /home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp
 operator/stream_operator.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/operator/operator/stream_operator.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp
+profiler/tuple_productivity_profiler.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/profiler/tuple_productivity_profiler.h
+common/define.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/common/define.h
 
 /home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp
 synchronizer/synchronizer.h

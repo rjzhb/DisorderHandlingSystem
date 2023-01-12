@@ -3,8 +3,11 @@
 
 CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o
  /home/rjzhb/Project/DisorderHandlingSystem/main.cpp
-CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o
+CMakeFiles/DisorderHandlingSystem.dir/src/common/define.cpp.o
  ../src/include/common/define.h
+ ../src/include/common/stream.h
+ /home/rjzhb/Project/DisorderHandlingSystem/src/common/define.cpp
+CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o
  ../src/include/common/stream.h
  /home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp
 CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o
@@ -13,24 +16,40 @@ CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o
  ../src/include/kslack/k_slack.h
  ../src/include/manager/buffer_size_manager.h
  ../src/include/manager/statistics_manager.h
+ ../src/include/operator/stream_operator.h
+ ../src/include/profiler/tuple_productivity_profiler.h
+ ../src/include/synchronizer/synchronizer.h
  /home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
 CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o
+ ../src/include/common/define.h
+ ../src/include/common/stream.h
  ../src/include/manager/buffer_size_manager.h
+ ../src/include/manager/statistics_manager.h
+ ../src/include/profiler/tuple_productivity_profiler.h
  /home/rjzhb/Project/DisorderHandlingSystem/src/manager/buffer_size_manager.cpp
 CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o
  ../src/include/common/define.h
+ ../src/include/common/stream.h
  ../src/include/manager/statistics_manager.h
+ ../src/include/profiler/tuple_productivity_profiler.h
  /home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp
 CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o
  ../src/include/common/define.h
  ../src/include/common/stream.h
+ ../src/include/manager/statistics_manager.h
  ../src/include/operator/stream_operator.h
+ ../src/include/profiler/tuple_productivity_profiler.h
  /home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp
+CMakeFiles/DisorderHandlingSystem.dir/src/profiler/tuple_productivity_profiler.cpp.o
+ ../src/include/common/define.h
+ ../src/include/common/stream.h
+ ../src/include/profiler/tuple_productivity_profiler.h
+ /home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp
 CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.o
  ../src/include/common/define.h
  ../src/include/common/stream.h
- ../src/include/kslack/k_slack.h
- ../src/include/manager/buffer_size_manager.h
  ../src/include/manager/statistics_manager.h
+ ../src/include/operator/stream_operator.h
+ ../src/include/profiler/tuple_productivity_profiler.h
  ../src/include/synchronizer/synchronizer.h
  /home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp
