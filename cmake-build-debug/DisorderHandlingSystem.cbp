@@ -108,6 +108,12 @@
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/manager/statistics_manager.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/manager/window_manager.cpp">
+			<Option target="DisorderHandlingSystem"/>
+		</Unit>
+		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/manager/window_manager.h">
+			<Option target="DisorderHandlingSystem"/>
+		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/operator/stream_operator.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>

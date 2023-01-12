@@ -3,6 +3,8 @@
 //
 
 #include <map>
+#include <list>
+#include <complex>
 #include "manager/statistics_manager.h"
 
 auto StatisticsManager::add_record(int stream_id, Tuple tuple) -> void {
@@ -22,9 +24,53 @@ auto StatisticsManager::get_maxD(int stream_id) -> int {
         max_D = std::max(max_D, it.delay);
     }
     return 0;
-
-
 }
+
+
+auto StatisticsManager::get_R_stat(int stream_id) -> int {
+    std::vector<Tuple> record = record_map_[stream_id];
+
+    //当前Rstat大小
+    int R_stat = R_stat_map_[stream_id];
+
+    //窗口
+    std::list<int> window1_list;
+    std::list<int> window0_list;
+
+    //维护sum变量,方便取平均值
+    int sum_w0 = 0;
+    int sum_w1 = 0;
+
+    //取出record里面当前R_stat大小范围的数据,并计算频率，用频率估计概率
+    for (int i = record.size() - 1; i >= record.size() - R_stat; i--) {
+        int xi = get_D(record[i].delay);
+        window1_list.push_back(xi);
+        sum_w1 += xi;
+    }
+
+    double e_cut = 0;
+    while (!window1_list.empty()) {
+        //将窗口分为w0,w1两部分
+        int w1_front = window1_list.front();
+        window0_list.push_back(w1_front);
+        window1_list.pop_front();
+        sum_w1 -= w1_front;
+        sum_w0 += w1_front;
+
+        //更新e_cut
+        double m = 1/(1/window0_list.size() + 1/window1_list.size());
+        double confidence_value = confidenceValue / (window1_list.size() + window0_list.size());
+        e_cut = std::sqrt((1 / 2* m) * std::log1p(4 / confidence_value));
+
+        if (std::abs(sum_w1 * 1.0 / window1_list.size() - sum_w0 * 1.0 / window0_list.size()) >= e_cut) {
+            R_stat_map_[stream_id] = window1_list.size();
+            break;
+        }
+    }
+
+    return window1_list.size();
+}
+
 
 //获取Ksync的值，Ksync = iT - ki - min{iT - ki| i∈[1,m]}
 auto StatisticsManager::get_ksync(int stream_id) -> int {
@@ -81,16 +127,13 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 
     std::vector<Tuple> record = record_map_[stream_id];
 
-    if (histogram_map_[stream_id][d] != 0) {
-        return histogram_map_[stream_id][d];
-    }
-
     //取出record里面R_stat大小范围的数据,并计算频率，用频率估计概率
     std::map<int, int> rate_map;
     for (int i = record.size() - 1; i >= record.size() - R_stat; i--) {
         int Di = get_D(record[i].delay);
         rate_map[Di] = rate_map.find(Di) == rate_map.end() ? 0 : rate_map[Di] + 1;
     }
+
     //用直方图模拟
     if (histogram_map_.find(stream_id) == histogram_map_.end()) {
         histogram_map_[stream_id].reserve(maxDelay);
@@ -98,11 +141,27 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 
     double sum_p = 0;
     for (auto it: rate_map) {
-        histogram_map_[stream_id][it.first] = it.second * 1.0 / R_stat;
-        sum_p += it.second * 1.0 / R_stat;
+        if (histogram_map_[stream_id][it.first] != 0) {
+            //原先的直方图已经统计过了该Di的概率，故取平均值
+            histogram_map_[stream_id][it.first] = (histogram_map_[stream_id][it.first] + it.second * 1.0 / R_stat) / 2;
+        } else {
+            histogram_map_[stream_id][it.first] = it.second * 1.0 / R_stat;
+        }
+        sum_p += histogram_map_[stream_id][it.first];
     }
 
-    //折线插值估计 , 双指针中心扩散法
+    //如果d已经有现成的概率，则直接返回即可
+    if (histogram_map_[stream_id][d] != 0) {
+        //前面可能更新过了直方图，返回前做一次归一化
+        for (auto it: histogram_map_[stream_id]) {
+            if (it != 0) {
+                it /= sum_p;
+            }
+        }
+        return histogram_map_[stream_id][d];
+    }
+
+    //如果d没有记录，则做折线插值估计 , 双指针中心扩散法
     int hi_size = histogram_map_[stream_id].size();
     int left = d - 1, right = d + 1;
     while (left >= 0 && right < hi_size) {
@@ -192,5 +251,6 @@ auto StatisticsManager::wil(int l, int stream_id, int K) -> int {
 
     return res;
 }
+
 
 

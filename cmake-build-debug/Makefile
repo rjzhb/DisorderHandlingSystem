@@ -204,6 +204,33 @@ src/common/stream.cpp.s:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.s
 .PHONY : src/common/stream.cpp.s
 
+src/include/manager/window_manager.o: src/include/manager/window_manager.cpp.o
+
+.PHONY : src/include/manager/window_manager.o
+
+# target to build an object file
+src/include/manager/window_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/include/manager/window_manager.cpp.o
+.PHONY : src/include/manager/window_manager.cpp.o
+
+src/include/manager/window_manager.i: src/include/manager/window_manager.cpp.i
+
+.PHONY : src/include/manager/window_manager.i
+
+# target to preprocess a source file
+src/include/manager/window_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/include/manager/window_manager.cpp.i
+.PHONY : src/include/manager/window_manager.cpp.i
+
+src/include/manager/window_manager.s: src/include/manager/window_manager.cpp.s
+
+.PHONY : src/include/manager/window_manager.s
+
+# target to generate assembly for a file
+src/include/manager/window_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/src/include/manager/window_manager.cpp.s
+.PHONY : src/include/manager/window_manager.cpp.s
+
 src/kslack/k_slack.o: src/kslack/k_slack.cpp.o
 
 .PHONY : src/kslack/k_slack.o
@@ -384,6 +411,9 @@ help:
 	@echo "... src/common/stream.o"
 	@echo "... src/common/stream.i"
 	@echo "... src/common/stream.s"
+	@echo "... src/include/manager/window_manager.o"
+	@echo "... src/include/manager/window_manager.i"
+	@echo "... src/include/manager/window_manager.s"
 	@echo "... src/kslack/k_slack.o"
 	@echo "... src/kslack/k_slack.i"
 	@echo "... src/kslack/k_slack.s"

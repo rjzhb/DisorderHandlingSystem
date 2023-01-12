@@ -28,6 +28,9 @@ constexpr int P{};
 //basic window size
 constexpr int b{};
 
+//用于估计R的可信度值，范围(0,1)
+constexpr int confidenceValue{};
+
 //流id和stream对象的映射
 std::unordered_map<int, Stream *> stream_map;
 

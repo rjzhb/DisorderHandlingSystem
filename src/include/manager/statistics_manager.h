@@ -43,6 +43,9 @@ public:
     auto get_maxD(int stream_id) -> int;
 
 private:
+    //Rstat窗口大小
+    std::unordered_map<int, int> R_stat_map_;
+
     //历史流Si输入记录的映射
     std::unordered_map<int, std::vector<Tuple>> record_map_;
 
