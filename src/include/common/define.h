@@ -47,6 +47,8 @@ struct Tuple {
     int ts;
     //延迟
     int delay;
+
+    Tuple(int streamId, int id, int ts) : streamId(streamId), id(id), ts(ts) {}
 };
 
 struct TupleComparator {
@@ -60,6 +62,10 @@ struct TupleComparator {
 class Stream {
 public:
 
+    explicit Stream(int stream_id, int window_size, std::queue<Tuple> tuple_list);
+
+    ~Stream() = default;
+
     auto get_window_size() -> int;
 
     auto get_id() -> int;
@@ -69,11 +75,11 @@ public:
 
 private:
     //论文中的Wi
-    int window_size_;
+    int window_size_{};
     //流id
-    int stream_id_;
+    int stream_id_{};
     //元组
-    std::queue<Tuple> tuple_list_;
+    std::queue<Tuple> tuple_list_{};
 };
 
 

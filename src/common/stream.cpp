@@ -6,6 +6,12 @@
 
 #include "common/define.h"
 
+Stream::Stream(int stream_id, int window_size, std::queue<Tuple> tuple_list) {
+    stream_id_ = stream_id;
+    window_size_ = window_size;
+    tuple_list_ = tuple_list;
+}
+
 auto Stream::get_window_size() -> int {
     return window_size_;
 }
@@ -17,3 +23,6 @@ auto Stream::get_id() -> int {
 auto Stream::get_tuple_list() -> std::queue<Tuple> {
     return tuple_list_;
 }
+
+
+
