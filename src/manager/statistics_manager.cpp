@@ -7,6 +7,15 @@
 #include <complex>
 #include "manager/statistics_manager.h"
 
+StatisticsManager::StatisticsManager(TupleProductivityProfiler *profiler) {
+    productivity_profiler_ = profiler;
+}
+
+StatisticsManager::~StatisticsManager() {
+    delete productivity_profiler_;
+}
+
+
 auto StatisticsManager::add_record(int stream_id, Tuple tuple) -> void {
     record_map_[stream_id].push_back(tuple);
 }
@@ -58,9 +67,9 @@ auto StatisticsManager::get_R_stat(int stream_id) -> int {
         sum_w0 += w1_front;
 
         //更新e_cut
-        double m = 1/(1/window0_list.size() + 1/window1_list.size());
+        double m = 1 / (1 / window0_list.size() + 1 / window1_list.size());
         double confidence_value = confidenceValue / (window1_list.size() + window0_list.size());
-        e_cut = std::sqrt((1 / 2* m) * std::log1p(4 / confidence_value));
+        e_cut = std::sqrt((1 / 2 * m) * std::log1p(4 / confidence_value));
 
         if (std::abs(sum_w1 * 1.0 / window1_list.size() - sum_w0 * 1.0 / window0_list.size()) >= e_cut) {
             R_stat_map_[stream_id] = window1_list.size();

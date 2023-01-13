@@ -4,6 +4,22 @@
 
 #include "kslack/k_slack.h"
 
+KSlack::KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager,
+               Synchronizer *synchronizer) {
+    stream_ = stream;
+    buffer_size_manager_ = buffer_size_manager;
+    statistics_manager_ = statistics_manager;
+    synchronizer_ = synchronizer;
+}
+
+
+KSlack::~KSlack() {
+    delete stream_;
+    delete buffer_size_manager_;
+    delete statistics_manager_;
+    delete synchronizer_;
+}
+
 //K-Slack算法对无序流进行处理
 auto KSlack::disorder_handling() -> void {
     std::queue<Tuple> output_list_;
@@ -45,3 +61,4 @@ auto KSlack::disorder_handling() -> void {
     //将输出元组送入同步器
     synchronizer_->synchronize_stream(output_list_);
 }
+

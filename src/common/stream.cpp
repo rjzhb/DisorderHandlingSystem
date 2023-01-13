@@ -2,7 +2,9 @@
 // Created by 86183 on 2023/1/8.
 //
 
-#include "common/stream.h"
+
+
+#include "common/define.h"
 
 auto Stream::get_window_size() -> int {
     return window_size_;

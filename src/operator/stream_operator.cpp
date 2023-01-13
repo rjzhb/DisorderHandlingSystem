@@ -4,6 +4,15 @@
 
 #include "operator/stream_operator.h"
 
+StreamOperator::StreamOperator(TupleProductivityProfiler *profiler) {
+    productivity_profiler_ = profiler;
+}
+
+StreamOperator::~StreamOperator() {
+    delete productivity_profiler_;
+}
+
+
 //连接条件,根据实际生产由程序员指定
 auto StreamOperator::can_join_(Tuple t1, Tuple t2) -> bool {
     return true;

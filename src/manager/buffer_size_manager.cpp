@@ -4,6 +4,17 @@
 
 #include "manager/buffer_size_manager.h"
 
+BufferSizeManager::BufferSizeManager(StatisticsManager *statistics_manager, TupleProductivityProfiler *profiler) {
+    statistics_manager_ = statistics_manager;
+    productivity_profiler_ = profiler;
+}
+
+BufferSizeManager::~BufferSizeManager() {
+    delete statistics_manager_;
+    delete productivity_profiler_;
+}
+
+
 /**
  *
  * @param L  - buffer-size manager的自适应时间间隔
@@ -57,7 +68,6 @@ auto BufferSizeManager::y(int stream_id, int K) -> double {
 
     return static_cast<int>(sel_radio * numerator / denominator);
 }
-
 
 
 

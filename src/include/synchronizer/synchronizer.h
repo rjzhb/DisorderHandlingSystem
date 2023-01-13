@@ -8,12 +8,16 @@
 
 #include <vector>
 #include <queue>
-#include "common/define.h"
-#include "operator/stream_operator.h"
 #include <set>
+#include "common/define.h"
+
 
 class Synchronizer {
 public:
+
+    Synchronizer() = default;
+
+    ~Synchronizer() = default;
 
     //同步过程
     auto synchronize_stream(std::queue<Tuple> input_list) -> void;
@@ -21,16 +25,16 @@ public:
 private:
 
     //SyncBuf缓冲区映射
-    std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_;
+    std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_{};
 
     //同步输出区
-    std::queue<Tuple> output_;
+    std::queue<Tuple> output_{};
 
     //Tsync
     int T_sync_{};
 
     //stream的数量
-    int stream_count_;
+    int stream_count_{};
 
     //当前缓冲区拥有tuple的流的数量
     int own_stream_{};

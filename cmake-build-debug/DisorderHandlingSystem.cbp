@@ -96,9 +96,6 @@
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/common/define.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>
-		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/common/stream.h">
-			<Option target="DisorderHandlingSystem"/>
-		</Unit>
 		<Unit filename="/home/rjzhb/Project/DisorderHandlingSystem/src/include/kslack/k_slack.h">
 			<Option target="DisorderHandlingSystem"/>
 		</Unit>

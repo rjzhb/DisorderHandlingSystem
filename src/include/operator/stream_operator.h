@@ -8,12 +8,16 @@
 
 #include <queue>
 #include <unordered_map>
+#include "profiler/tuple_productivity_profiler.h"
 #include "common/define.h"
-#include "common/stream.h"
-#include "manager/statistics_manager.h"
+
 
 class StreamOperator {
 public:
+
+    explicit StreamOperator(TupleProductivityProfiler * profiler);
+
+    ~StreamOperator();
 
     auto mswj_execution(std::queue<Tuple> input) -> void;
 
@@ -24,13 +28,13 @@ public:
 private:
 
     //连接时的T
-    int T_op_;
+    int T_op_{};
 
     //window map
-    std::unordered_map<int, std::queue<Tuple>> window_map_;
+    std::unordered_map<int, std::queue<Tuple>> window_map_{};
 
     //结果元组
-    std::queue<Tuple> result_;
+    std::queue<Tuple> result_{};
 
     //元组生产力监视器
     TupleProductivityProfiler *productivity_profiler_;

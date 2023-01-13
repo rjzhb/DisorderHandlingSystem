@@ -7,9 +7,14 @@
 
 
 #include "statistics_manager.h"
+#include "profiler/tuple_productivity_profiler.h"
 
 class BufferSizeManager {
 public:
+
+    explicit BufferSizeManager(StatisticsManager *statistics_manager, TupleProductivityProfiler *profiler);
+
+    ~BufferSizeManager();
 
     //自适应K值算法
     auto k_search(int stream_id) -> int;

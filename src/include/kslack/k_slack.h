@@ -9,14 +9,19 @@
 #include <cstddef>
 #include <queue>
 #include <set>
-#include "common/define.h"
 #include "manager/buffer_size_manager.h"
 #include "manager/statistics_manager.h"
-#include "common/stream.h"
 #include "synchronizer/synchronizer.h"
+#include "common/define.h"
+
 
 class KSlack {
 public:
+
+    explicit KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager,
+                    Synchronizer *synchronizer);
+
+    ~KSlack();
 
     auto disorder_handling() -> void;
 
