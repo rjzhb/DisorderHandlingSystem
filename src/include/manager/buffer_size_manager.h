@@ -14,7 +14,7 @@ public:
 
     explicit BufferSizeManager(StatisticsManager *statistics_manager, TupleProductivityProfiler *profiler);
 
-    ~BufferSizeManager();
+    ~BufferSizeManager() = default;
 
     //自适应K值算法
     auto k_search(int stream_id) -> int;

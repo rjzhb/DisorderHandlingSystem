@@ -9,10 +9,7 @@ BufferSizeManager::BufferSizeManager(StatisticsManager *statistics_manager, Tupl
     productivity_profiler_ = profiler;
 }
 
-BufferSizeManager::~BufferSizeManager() {
-    delete statistics_manager_;
-    delete productivity_profiler_;
-}
+
 
 
 /**
@@ -63,7 +60,7 @@ auto BufferSizeManager::y(int stream_id, int K) -> double {
     }
 
     if (denominator == 0) {
-        return -1;
+        return 1;
     }
 
     return static_cast<int>(sel_radio * numerator / denominator);

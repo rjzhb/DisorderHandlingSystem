@@ -2,7 +2,19 @@
 // Created by 86183 on 2023/1/7.
 //
 
+#include <iostream>
 #include "synchronizer/synchronizer.h"
+
+Synchronizer::Synchronizer(std::list<KSlack *> kslack_list) {
+    for(auto it : kslack_list){
+        std::queue<Tuple> q = it->get_output();
+        while(!q.empty()){
+            input_.push(q.front());
+            q.pop();
+        }
+    }
+}
+
 
 
 //从k-slack发送过来的流
@@ -42,5 +54,7 @@ auto Synchronizer::synchronize_stream(std::queue<Tuple> input_list) -> void {
         }
     }
 
+    std::cout << "同步后:" << std::endl;
+    print(output_);
 }
 

@@ -33,10 +33,15 @@ constexpr double confidenceValue{0.5};
 
 class Stream;
 
+struct Tuple;
+
 extern std::unordered_map<int, Stream *> stream_map;
 
 //获得离散随机变量Di(粗粒度延迟)的值
 auto get_D(int delay) -> int;
+
+//输出用
+auto print(std::queue<Tuple> q) -> void;
 
 struct Tuple {
     //表示来自输入流Si
@@ -72,6 +77,9 @@ public:
 
     auto get_tuple_list() -> std::queue<Tuple>;
 
+    auto pop_tuple() -> void;
+
+    auto push_tuple(Tuple tuple) -> void;
 
 private:
     //论文中的Wi

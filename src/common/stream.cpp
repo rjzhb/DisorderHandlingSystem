@@ -24,5 +24,13 @@ auto Stream::get_tuple_list() -> std::queue<Tuple> {
     return tuple_list_;
 }
 
+auto Stream::pop_tuple() -> void {
+    tuple_list_.pop();
+}
+
+auto Stream::push_tuple(Tuple tuple) -> void {
+    tuple_list_.push(tuple);
+}
+
 
 

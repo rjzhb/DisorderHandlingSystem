@@ -9,13 +9,14 @@
 #include <vector>
 #include <queue>
 #include <set>
+#include <list>
 #include "common/define.h"
+#include "kslack/k_slack.h"
 
 
 class Synchronizer {
 public:
-
-    Synchronizer() = default;
+    explicit Synchronizer(std::list<KSlack *> kslack_list);
 
     ~Synchronizer() = default;
 
@@ -23,6 +24,8 @@ public:
     auto synchronize_stream(std::queue<Tuple> input_list) -> void;
 
 private:
+    //输入区
+    std::queue<Tuple> input_{};
 
     //SyncBuf缓冲区映射
     std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_{};

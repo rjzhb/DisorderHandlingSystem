@@ -8,9 +8,6 @@ StreamOperator::StreamOperator(TupleProductivityProfiler *profiler) {
     productivity_profiler_ = profiler;
 }
 
-StreamOperator::~StreamOperator() {
-    delete productivity_profiler_;
-}
 
 
 //连接条件,根据实际生产由程序员指定

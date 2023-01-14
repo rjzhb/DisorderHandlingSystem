@@ -11,10 +11,6 @@ StatisticsManager::StatisticsManager(TupleProductivityProfiler *profiler) {
     productivity_profiler_ = profiler;
 }
 
-StatisticsManager::~StatisticsManager() {
-    delete productivity_profiler_;
-}
-
 
 auto StatisticsManager::add_record(int stream_id, Tuple tuple) -> void {
     record_map_[stream_id].push_back(tuple);

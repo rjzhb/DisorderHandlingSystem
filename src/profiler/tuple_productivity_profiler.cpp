@@ -22,6 +22,10 @@ auto TupleProductivityProfiler::update_join_res(int Di, int res) -> void {
 }
 
 auto TupleProductivityProfiler::get_select_ratio(int K) -> double {
+    if (join_result_map_.empty() || cross_join_map_.empty()) {
+        return 1;
+
+    }
     int M_sum = 0;
     int Mx_sum = 0;
     for (int d = 0; d <= K; d++) {

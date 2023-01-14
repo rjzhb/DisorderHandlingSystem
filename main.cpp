@@ -1,5 +1,6 @@
 #include <iostream>
 #include <list>
+#include <thread>
 #include "manager/buffer_size_manager.h"
 #include "operator/stream_operator.h"
 #include "synchronizer/synchronizer.h"

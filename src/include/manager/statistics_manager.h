@@ -17,7 +17,7 @@ public:
 
     explicit StatisticsManager(TupleProductivityProfiler *profiler);
 
-    ~StatisticsManager();
+    ~StatisticsManager() = default;
 
     //获得Ksync
     auto get_ksync(int stream_id) -> int;

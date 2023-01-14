@@ -23,10 +23,10 @@ manager/buffer_size_manager.h
 ../src/include/kslack/manager/buffer_size_manager.h
 manager/statistics_manager.h
 ../src/include/kslack/manager/statistics_manager.h
-synchronizer/synchronizer.h
-../src/include/kslack/synchronizer/synchronizer.h
 common/define.h
 ../src/include/kslack/common/define.h
+synchronizer/synchronizer.h
+../src/include/kslack/synchronizer/synchronizer.h
 
 ../src/include/manager/buffer_size_manager.h
 statistics_manager.h
@@ -67,38 +67,36 @@ queue
 -
 set
 -
+list
+-
 common/define.h
 ../src/include/synchronizer/common/define.h
 
-/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
-kslack/k_slack.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
-
-/home/rjzhb/Project/DisorderHandlingSystem/src/manager/buffer_size_manager.cpp
-manager/buffer_size_manager.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/buffer_size_manager.h
-
-/home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp
-map
+/home/rjzhb/Project/DisorderHandlingSystem/main.cpp
+iostream
 -
 list
 -
-complex
+thread
 -
-manager/statistics_manager.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/statistics_manager.h
-
-/home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp
+manager/buffer_size_manager.h
+/home/rjzhb/Project/DisorderHandlingSystem/manager/buffer_size_manager.h
 operator/stream_operator.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/operator/operator/stream_operator.h
+/home/rjzhb/Project/DisorderHandlingSystem/operator/stream_operator.h
+synchronizer/synchronizer.h
+/home/rjzhb/Project/DisorderHandlingSystem/synchronizer/synchronizer.h
+kslack/k_slack.h
+/home/rjzhb/Project/DisorderHandlingSystem/kslack/k_slack.h
 
-/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp
-profiler/tuple_productivity_profiler.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/profiler/tuple_productivity_profiler.h
-common/define.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/common/define.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
+iostream
+-
+kslack/k_slack.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
 
 /home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp
+iostream
+-
 synchronizer/synchronizer.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer/synchronizer.h
 

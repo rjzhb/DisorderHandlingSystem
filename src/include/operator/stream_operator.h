@@ -15,9 +15,9 @@
 class StreamOperator {
 public:
 
-    explicit StreamOperator(TupleProductivityProfiler * profiler);
+    explicit StreamOperator(TupleProductivityProfiler *profiler);
 
-    ~StreamOperator();
+    ~StreamOperator() = default;
 
     auto mswj_execution(std::queue<Tuple> input) -> void;
 

@@ -2,6 +2,7 @@
 // Created by 86183 on 2023/1/4.
 //
 
+#include <iostream>
 #include "kslack/k_slack.h"
 
 KSlack::KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager,
@@ -20,9 +21,13 @@ KSlack::~KSlack() {
     delete synchronizer_;
 }
 
+
+auto KSlack::get_output() -> std::queue<Tuple> {
+    return output_;
+}
+
 //K-Slack算法对无序流进行处理
 auto KSlack::disorder_handling() -> void {
-    std::queue<Tuple> output_list_;
     while (!stream_->get_tuple_list().empty()) {
         Tuple tuple = stream_->get_tuple_list().front();
 
@@ -46,10 +51,10 @@ auto KSlack::disorder_handling() -> void {
             }
 
             //满足上述公式，加入输出区
-            output_list_.push(tuple);
+            output_.push(tuple);
             buffer_.erase(buffer_.begin());
         }
-        stream_->get_tuple_list().pop();
+        stream_->pop_tuple();
 
         //加入tuple进入buffer
         buffer_.insert(tuple);
@@ -58,7 +63,14 @@ auto KSlack::disorder_handling() -> void {
         buffer_size_ = buffer_size_manager_->k_search(stream_->get_id());
     }
 
-    //将输出元组送入同步器
-    synchronizer_->synchronize_stream(output_list_);
-}
+    //将buffer区剩下的元素加入output
+    while (!buffer_.empty()) {
+        output_.push(*buffer_.begin());
+        buffer_.erase(buffer_.begin());
+    }
 
+    std::cout << "kslack作用后:" << std::endl;
+    print(output_);
+    //将输出元组送入同步器
+    synchronizer_->synchronize_stream(output_);
+}
