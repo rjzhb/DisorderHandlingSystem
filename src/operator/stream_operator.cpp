@@ -19,8 +19,8 @@ auto StreamOperator::get_result() -> std::queue<Tuple> {
     return result_;
 }
 
-auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
-    while (!input.empty()) {
+auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
+    while (!input.empty() && input.front().id > 0) {
         Tuple tuple = input.front();
         input.pop();
         int stream_id = tuple.streamId;
@@ -85,9 +85,6 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
             window_map_[stream_id].push_back(tuple);
         }
     }
-
-    std::cout << "连接后:" << std::endl;
-    print(result_);
 
 }
 

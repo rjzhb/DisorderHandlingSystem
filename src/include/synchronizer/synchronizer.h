@@ -11,23 +11,23 @@
 #include <set>
 #include <list>
 #include "common/define.h"
-#include "kslack/k_slack.h"
+#include "operator/stream_operator.h"
 
 
 class Synchronizer {
 public:
-    explicit Synchronizer(std::list<KSlack *> kslack_list);
+    explicit Synchronizer(int stream_count, StreamOperator *stream_operator);
 
     ~Synchronizer() = default;
 
     //同步过程
-    auto synchronize_stream() -> void;
+    auto synchronize_stream(std::queue<Tuple> &input) -> void;
 
     auto get_output() -> std::queue<Tuple>;
 
 private:
-    //输入区
-    std::queue<Tuple> input_{};
+//    //输入区
+//    std::queue<Tuple> input_{};
 
     //SyncBuf缓冲区映射
     std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_{};
@@ -43,6 +43,9 @@ private:
 
     //当前缓冲区拥有tuple的流的数量
     int own_stream_{};
+
+    //连接器
+    StreamOperator *stream_operator_;
 };
 
 

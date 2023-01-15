@@ -33,7 +33,6 @@ private:
     //到达join operator的元组数量记录
     std::unordered_map<int, int> join_record_map_{};
 
-    //论文没讲清楚的点， key究竟是delay还是随机变量Di？目前根据上下文推断大概率为delay
     //the join operator records both the number of cross-join result size,
     std::map<int, int> cross_join_map_{};
 

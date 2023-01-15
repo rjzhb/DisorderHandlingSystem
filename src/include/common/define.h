@@ -14,7 +14,7 @@
 constexpr int g{1};
 
 //自适应时间间隔
-constexpr int L{1};
+constexpr int L{3};
 
 //最大延迟
 constexpr int maxDelay = 100;

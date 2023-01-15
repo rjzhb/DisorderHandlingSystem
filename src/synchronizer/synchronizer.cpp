@@ -5,15 +5,9 @@
 #include <iostream>
 #include "synchronizer/synchronizer.h"
 
-Synchronizer::Synchronizer(std::list<KSlack *> kslack_list) {
-    for (auto it: kslack_list) {
-        std::queue<Tuple> q = it->get_output();
-        while (!q.empty()) {
-            input_.push(q.front());
-            q.pop();
-        }
-    }
-    stream_count_ = kslack_list.size();
+Synchronizer::Synchronizer(int stream_count, StreamOperator *stream_operator) {
+    stream_count_ = stream_count;
+    stream_operator_ = stream_operator;
 }
 
 
@@ -23,11 +17,11 @@ auto Synchronizer::get_output() -> std::queue<Tuple> {
 
 
 //从k-slack发送过来的流
-auto Synchronizer::synchronize_stream() -> void {
-    while (!input_.empty()) {
-        Tuple tuple = input_.front();
+auto Synchronizer::synchronize_stream(std::queue<Tuple> &input) -> void {
+    while (!input.empty() && input.front().id > 0) {
+        Tuple tuple = input.front();
         int stream_id = tuple.streamId;
-        input_.pop();
+        input.pop();
         if (tuple.ts > T_sync_) {
             if (sync_buffer_map_.find(stream_id) == sync_buffer_map_.end() || sync_buffer_map_[stream_id].empty()) {
                 //下一步要插入tuple了
@@ -54,13 +48,11 @@ auto Synchronizer::synchronize_stream() -> void {
                 }
             }
         } else {
-            Tuple tuple = input_.front();
-            input_.pop();
+            Tuple tuple = input.front();
+            input.pop();
             output_.push(tuple);
         }
+        stream_operator_->mswj_execution(output_);
     }
-
-    std::cout << "同步后:" << std::endl;
-    print(output_);
 }
 

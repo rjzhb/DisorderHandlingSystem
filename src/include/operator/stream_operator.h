@@ -20,7 +20,7 @@ public:
 
     ~StreamOperator() = default;
 
-    auto mswj_execution(std::queue<Tuple> input) -> void;
+    auto mswj_execution(std::queue<Tuple> &input) -> void;
 
     auto can_join_(Tuple t1, Tuple t2) -> bool;
 
@@ -39,6 +39,7 @@ private:
 
     //元组生产力监视器
     TupleProductivityProfiler *productivity_profiler_;
+
 };
 
 

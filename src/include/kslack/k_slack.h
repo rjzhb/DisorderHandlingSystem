@@ -12,18 +12,22 @@
 #include "manager/buffer_size_manager.h"
 #include "manager/statistics_manager.h"
 #include "common/define.h"
+#include "synchronizer/synchronizer.h"
 
 
 class KSlack {
 public:
 
-    explicit KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager);
+    explicit KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager,
+                    Synchronizer *synchronizer);
 
     ~KSlack();
 
     auto disorder_handling() -> void;
 
     auto get_output() -> std::queue<Tuple>;
+
+    auto get_id() -> int;
 
 private:
 
@@ -48,6 +52,8 @@ private:
     //数据统计管理器
     StatisticsManager *statistics_manager_;
 
+    //同步器
+    Synchronizer *synchronizer_;
 };
 
 

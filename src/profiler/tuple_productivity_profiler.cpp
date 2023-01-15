@@ -34,7 +34,7 @@ auto TupleProductivityProfiler::get_select_ratio(int K) -> double {
     }
     int M_DM_sum = 0;
     int Mx_DM_sum = 0;
-    for (int d = 0; d <= join_result_map_.end()->first; d++) {
+    for (int d = 0; d <= (--join_result_map_.end())->first; d++) {
         Mx_DM_sum += cross_join_map_[d];
         M_DM_sum += join_result_map_[d];
     }

@@ -5,10 +5,12 @@
 #include <iostream>
 #include "kslack/k_slack.h"
 
-KSlack::KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager) {
+KSlack::KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager,
+               Synchronizer *synchronizer) {
     stream_ = stream;
     buffer_size_manager_ = buffer_size_manager;
     statistics_manager_ = statistics_manager;
+    synchronizer_ = synchronizer;
 }
 
 
@@ -23,6 +25,10 @@ auto KSlack::get_output() -> std::queue<Tuple> {
     return output_;
 }
 
+auto KSlack::get_id() -> int {
+    return stream_->get_id();
+}
+
 //K-Slack算法对无序流进行处理
 auto KSlack::disorder_handling() -> void {
     while (!stream_->get_tuple_list().empty()) {
@@ -30,6 +36,11 @@ auto KSlack::disorder_handling() -> void {
 
         //更新local time
         current_time_ = std::max(current_time_, tuple.ts);
+
+        //每L个时间单位调整K值
+        if (current_time_ % L == 0) {
+            buffer_size_ = buffer_size_manager_->k_search(stream_->get_id());
+        }
 
         //计算出tuple的delay,T - ts, 方便统计管理器统计记录
         tuple.delay = current_time_ - tuple.ts;
@@ -56,8 +67,9 @@ auto KSlack::disorder_handling() -> void {
         //加入tuple进入buffer
         buffer_.insert(tuple);
 
-        //动态更新K值
-        buffer_size_ = buffer_size_manager_->k_search(stream_->get_id());
+        //将output_加入同步器
+        synchronizer_->synchronize_stream(output_);
+
     }
 
     //将buffer区剩下的元素加入output
@@ -65,7 +77,9 @@ auto KSlack::disorder_handling() -> void {
         output_.push(*buffer_.begin());
         buffer_.erase(buffer_.begin());
     }
+    //将剩下的output_加入同步器
+    synchronizer_->synchronize_stream(output_);
 
-    std::cout << "kslack作用后:" << std::endl;
-    print(output_);
 }
+
+

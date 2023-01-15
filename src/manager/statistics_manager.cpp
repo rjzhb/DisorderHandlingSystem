@@ -28,15 +28,21 @@ auto StatisticsManager::get_maxD(int stream_id) -> int {
     for (auto it: record_map_[stream_id]) {
         max_D = std::max(max_D, it.delay);
     }
-    return 0;
+    return max_D;
 }
 
 
 auto StatisticsManager::get_R_stat(int stream_id) -> int {
     std::vector<Tuple> record = record_map_[stream_id];
+    if (record.empty()) {
+        return 1;
+    }
 
     //当前Rstat大小
-    int R_stat = R_stat_map_[stream_id];
+    int R_stat = 2;
+    if (R_stat_map_.find(stream_id) != R_stat_map_.end()) {
+        R_stat = R_stat_map_[stream_id];
+    }
 
     //窗口
     std::list<int> window1_list;
@@ -54,7 +60,7 @@ auto StatisticsManager::get_R_stat(int stream_id) -> int {
     }
 
     double e_cut = 0;
-    while (!window1_list.empty()) {
+    while (window1_list.size() > 1) {
         //将窗口分为w0,w1两部分
         int w1_front = window1_list.front();
         window0_list.push_back(w1_front);
@@ -92,6 +98,9 @@ auto StatisticsManager::get_avg_ksync(int stream_id) -> int {
     int sum_ksync_i = 0;
     int R_stat = get_R_stat(stream_id);
     std::vector<int> ksync_list = ksync_map_[stream_id];
+    if (ksync_list.empty()) {
+        return 1;
+    }
 
     //找出R_stat范围内的ksync_i的总和，再取平均值
     for (int i = ksync_list.size() - 1; i >= ksync_list.size() - R_stat; i--) {
@@ -99,7 +108,7 @@ auto StatisticsManager::get_avg_ksync(int stream_id) -> int {
     }
     int avg_ksync_i = sum_ksync_i / R_stat;
 
-    return avg_ksync_i;
+    return avg_ksync_i == 0 ? 1 : avg_ksync_i;
 }
 
 //公式见论文page 7
@@ -131,17 +140,20 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     }
 
     std::vector<Tuple> record = record_map_[stream_id];
+    if (record.empty()) {
+        return 1;
+    }
 
     //取出record里面R_stat大小范围的数据,并计算频率，用频率估计概率
     std::map<int, int> rate_map;
     for (int i = record.size() - 1; i >= record.size() - R_stat; i--) {
         int Di = get_D(record[i].delay);
-        rate_map[Di] = rate_map.find(Di) == rate_map.end() ? 0 : rate_map[Di] + 1;
+        rate_map[Di] = rate_map.find(Di) == rate_map.end() ? 1 : rate_map[Di] + 1;
     }
 
     //用直方图模拟
     if (histogram_map_.find(stream_id) == histogram_map_.end()) {
-        histogram_map_[stream_id].reserve(maxDelay);
+        histogram_map_[stream_id].resize(maxDelay);
     }
 
     double sum_p = 0;
@@ -170,6 +182,9 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     int hi_size = histogram_map_[stream_id].size();
     int left = d - 1, right = d + 1;
     while (left >= 0 && right < hi_size) {
+        if (histogram_map_[stream_id][left] != 0 && histogram_map_[stream_id][right] != 0) {
+            break;
+        }
         if (histogram_map_[stream_id][left] == 0) {
             left--;
         }
@@ -181,6 +196,9 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     if (left < 0) {
         left = d + 1, right = d + 2;
         while (right < hi_size) {
+            if (histogram_map_[stream_id][left] != 0 && histogram_map_[stream_id][right] != 0) {
+                break;
+            }
             if (histogram_map_[stream_id][left] == 0) {
                 left++;
             }
@@ -191,6 +209,9 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     } else if (right >= hi_size) {
         left = d - 2, right = d - 1;
         while (left >= 0) {
+            if (histogram_map_[stream_id][left] != 0 && histogram_map_[stream_id][right] != 0) {
+                break;
+            }
             if (histogram_map_[stream_id][left] == 0) {
                 left--;
             }
