@@ -20,6 +20,21 @@ public:
 
     ~StatisticsManager() = default;
 
+    //获得元组最大delay
+    auto get_maxD(int stream_id) -> int;
+
+    //离散随机变量Dik的概率分布函数fDiK， Dik表示连接算子在k设置下接受相应流中一个元组的粗粒度延迟
+    auto fDk(int d, int stream_id, int K) -> double;
+
+    //|wi^l|的估计
+    auto wil(int l, int stream_id, int K) -> int;
+
+    auto add_record(int stream_id, Tuple tuple) -> void;
+
+    auto add_record(int stream_id, int T, int K) -> void;
+
+
+private:
     //获得Ksync
     auto get_ksync(int stream_id) -> int;
 
@@ -35,20 +50,6 @@ public:
     //离散随机变量Di的概率分布函数fDi
     auto fD(int d, int stream_id) -> double;
 
-    //离散随机变量Dik的概率分布函数fDiK， Dik表示连接算子在k设置下接受相应流中一个元组的粗粒度延迟
-    auto fDk(int d, int stream_id, int K) -> double;
-
-    //|wi^l|的估计
-    auto wil(int l, int stream_id, int K) -> int;
-
-    auto add_record(int stream_id, Tuple tuple) -> void;
-
-    auto add_record(int stream_id, int T, int K) -> void;
-
-    //获得元组最大delay
-    auto get_maxD(int stream_id) -> int;
-
-private:
     //互斥锁
     std::mutex latch_;
 

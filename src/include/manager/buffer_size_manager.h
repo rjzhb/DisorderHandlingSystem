@@ -19,11 +19,10 @@ public:
     //自适应K值算法
     auto k_search(int stream_id) -> int;
 
+private:
+
     //论文中的函数γ(L,T)
     auto y(int stream_id, int K) -> double;
-
-
-private:
 
     //互斥锁
     std::mutex latch_;

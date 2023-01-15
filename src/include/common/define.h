@@ -8,6 +8,7 @@
 
 #include <unordered_map>
 #include <queue>
+#include <mutex>
 
 //系统参数定义
 //搜索粒度
@@ -36,6 +37,8 @@ class Stream;
 struct Tuple;
 
 extern std::unordered_map<int, Stream *> stream_map;
+
+extern std::mutex global_lock;
 
 //获得离散随机变量Di(粗粒度延迟)的值
 auto get_D(int delay) -> int;

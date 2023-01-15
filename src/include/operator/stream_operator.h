@@ -23,11 +23,11 @@ public:
 
     auto mswj_execution(std::queue<Tuple> &input) -> void;
 
-    auto can_join_(Tuple t1, Tuple t2) -> bool;
-
     auto get_result() -> std::queue<Tuple>;
 
 private:
+
+    auto can_join_(Tuple t1, Tuple t2) -> bool;
 
     //互斥锁
     std::mutex latch_;
