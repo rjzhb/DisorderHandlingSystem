@@ -23,7 +23,7 @@ KSlack::~KSlack() {
 
 
 auto KSlack::get_output() -> std::queue<Tuple> {
-    return output_;
+    return watch_output_;
 }
 
 auto KSlack::get_id() -> int {
@@ -61,6 +61,7 @@ auto KSlack::disorder_handling() -> void {
 
             //满足上述公式，加入输出区
             output_.push(tuple);
+            watch_output_.push(tuple);
             buffer_.erase(buffer_.begin());
         }
         stream_->pop_tuple();
@@ -76,6 +77,7 @@ auto KSlack::disorder_handling() -> void {
     //将buffer区剩下的元素加入output
     while (!buffer_.empty()) {
         output_.push(*buffer_.begin());
+        watch_output_.push(*buffer_.begin());
         buffer_.erase(buffer_.begin());
     }
     //将剩下的output_加入同步器

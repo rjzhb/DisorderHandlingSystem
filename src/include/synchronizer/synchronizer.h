@@ -37,6 +37,9 @@ private:
     //同步输出区
     std::queue<Tuple> output_{};
 
+    //观察区
+    std::queue<Tuple> watch_output_{};
+
     //Tsync
     int T_sync_{};
 

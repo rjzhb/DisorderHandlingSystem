@@ -86,19 +86,9 @@ common/define.h
 operator/stream_operator.h
 ../src/include/synchronizer/operator/stream_operator.h
 
-/home/rjzhb/Project/DisorderHandlingSystem/main.cpp
+/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
 iostream
 -
-list
--
-thread
--
-manager/buffer_size_manager.h
-/home/rjzhb/Project/DisorderHandlingSystem/manager/buffer_size_manager.h
-operator/stream_operator.h
-/home/rjzhb/Project/DisorderHandlingSystem/operator/stream_operator.h
-synchronizer/synchronizer.h
-/home/rjzhb/Project/DisorderHandlingSystem/synchronizer/synchronizer.h
 kslack/k_slack.h
-/home/rjzhb/Project/DisorderHandlingSystem/kslack/k_slack.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
 

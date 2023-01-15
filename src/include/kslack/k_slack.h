@@ -34,6 +34,9 @@ private:
     //输出区
     std::queue<Tuple> output_;
 
+    //观察区(用于最后的结果观察)
+    std::queue<Tuple> watch_output_;
+
     //缓冲区大小,相当于论文的K值,注：缓冲区大小并不是指集合的大小，而是以时间为单位来度量的
     size_t buffer_size_{1};
 

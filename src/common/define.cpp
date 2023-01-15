@@ -20,4 +20,5 @@ auto print(std::queue<Tuple> q) -> void {
         std::cout << "e" << q.front().streamId << "," << q.front().id << "时间戳:" << q.front().ts << std::endl;
         q.pop();
     }
+    std::cout << std::endl;
 }

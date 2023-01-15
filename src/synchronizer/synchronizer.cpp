@@ -12,7 +12,7 @@ Synchronizer::Synchronizer(int stream_count, StreamOperator *stream_operator) {
 
 
 auto Synchronizer::get_output() -> std::queue<Tuple> {
-    return output_;
+    return watch_output_;
 }
 
 
@@ -41,6 +41,7 @@ auto Synchronizer::synchronize_stream(std::queue<Tuple> &input) -> void {
                     //将所有等于Tsync的元组输出
                     while (it.second.begin()->ts == T_sync_) {
                         output_.push(*it.second.begin());
+                        watch_output_.push(*it.second.begin());
                         it.second.erase(it.second.begin());
                     }
                     if (it.second.empty()) {
@@ -50,6 +51,7 @@ auto Synchronizer::synchronize_stream(std::queue<Tuple> &input) -> void {
             }
         } else {
             output_.push(tuple);
+            watch_output_.push(tuple);
         }
         stream_operator_->mswj_execution(output_);
     }
