@@ -10,6 +10,7 @@
 #include <queue>
 #include <set>
 #include <list>
+#include <mutex>
 #include "common/define.h"
 #include "operator/stream_operator.h"
 
@@ -29,6 +30,7 @@ private:
 //    //输入区
 //    std::queue<Tuple> input_{};
 
+    std::mutex m;
     //SyncBuf缓冲区映射
     std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_{};
 

@@ -9,6 +9,7 @@
 #include <queue>
 #include <unordered_map>
 #include <list>
+#include <mutex>
 #include "profiler/tuple_productivity_profiler.h"
 #include "common/define.h"
 
@@ -28,6 +29,7 @@ public:
 
 private:
 
+    std::mutex m;
     //连接时的T
     int T_op_{};
 

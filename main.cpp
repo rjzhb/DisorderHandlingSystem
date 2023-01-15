@@ -31,10 +31,35 @@ std::list<Stream *> generate_stream() {
 
     Stream *stream_1 = new Stream(1, 2, stream_1_list);
 
+    std::queue<Tuple> stream_2_list;
+
+    Tuple e2_1(2, 1, 2);
+    Tuple e2_2(2, 2, 5);
+    Tuple e2_3(2, 3, 4);
+    Tuple e2_4(2, 4, 5);
+    Tuple e2_5(2, 5, 8);
+    Tuple e2_6(2, 6, 9);
+    Tuple e2_7(2, 7, 7);
+    Tuple e2_8(2, 8, 10);
+
+    stream_2_list.push(e2_1);
+    stream_2_list.push(e2_2);
+    stream_2_list.push(e2_3);
+    stream_2_list.push(e2_4);
+    stream_2_list.push(e2_5);
+    stream_2_list.push(e2_6);
+    stream_2_list.push(e2_7);
+    stream_2_list.push(e2_8);
+
+    Stream *stream_2 = new Stream(2, 2, stream_2_list);
+
     std::list<Stream *> list;
     list.push_back(stream_1);
+    list.push_back(stream_2);
 
     stream_map[1] = stream_1;
+    stream_map[2] = stream_2;
+
     return list;
 }
 
@@ -48,7 +73,7 @@ int main() {
     StreamOperator *stream_operator = new StreamOperator(productivity_profiler);
     StatisticsManager *statistics_manager = new StatisticsManager(productivity_profiler);
     BufferSizeManager *buffer_size_manager = new BufferSizeManager(statistics_manager, productivity_profiler);
-    Synchronizer *synchronizer = new Synchronizer(1, stream_operator);
+    Synchronizer *synchronizer = new Synchronizer(2, stream_operator);
 
     std::list<Stream *> stream_list = generate_stream();
     std::list<KSlack *> kslack_list;
@@ -62,9 +87,10 @@ int main() {
     pthread_t t1 = 1;
     pthread_t t2 = 2;
     pthread_create(&t1, NULL, &task, kslack_list.front());
-
+    pthread_create(&t2, NULL, &task, kslack_list.back());
     //执行线程：
     pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
 
 
     //输出kslack后的结果
