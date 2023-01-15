@@ -102,9 +102,3 @@ synchronizer/synchronizer.h
 kslack/k_slack.h
 /home/rjzhb/Project/DisorderHandlingSystem/kslack/k_slack.h
 
-/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
-iostream
--
-kslack/k_slack.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
-

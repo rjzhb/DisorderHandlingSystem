@@ -68,7 +68,8 @@ static void *task(void *p) {
     return NULL;
 }
 
-int main() {
+
+void test_2_kslack(){
     //初始化
     TupleProductivityProfiler *productivity_profiler = new TupleProductivityProfiler();
     StreamOperator *stream_operator = new StreamOperator(productivity_profiler);
@@ -112,5 +113,10 @@ int main() {
     delete stream_operator;
     delete statistics_manager;
     delete buffer_size_manager;
+}
+
+
+int main() {
+    test_2_kslack();
     return 0;
 }
