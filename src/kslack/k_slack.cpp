@@ -5,12 +5,10 @@
 #include <iostream>
 #include "kslack/k_slack.h"
 
-KSlack::KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager,
-               Synchronizer *synchronizer) {
+KSlack::KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager) {
     stream_ = stream;
     buffer_size_manager_ = buffer_size_manager;
     statistics_manager_ = statistics_manager;
-    synchronizer_ = synchronizer;
 }
 
 
@@ -18,7 +16,6 @@ KSlack::~KSlack() {
     delete stream_;
     delete buffer_size_manager_;
     delete statistics_manager_;
-    delete synchronizer_;
 }
 
 
@@ -71,6 +68,4 @@ auto KSlack::disorder_handling() -> void {
 
     std::cout << "kslack作用后:" << std::endl;
     print(output_);
-    //将输出元组送入同步器
-    synchronizer_->synchronize_stream(output_);
 }

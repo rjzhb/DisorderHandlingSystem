@@ -17,8 +17,7 @@
 class KSlack {
 public:
 
-    explicit KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager,
-                    Synchronizer *synchronizer);
+    explicit KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager);
 
     ~KSlack();
 

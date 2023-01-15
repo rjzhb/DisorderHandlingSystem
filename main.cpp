@@ -65,7 +65,6 @@ std::list<Stream *> generate_stream() {
 
 int main() {
     //初始化
-    Synchronizer *synchronizer = new Synchronizer();
     TupleProductivityProfiler *productivity_profiler = new TupleProductivityProfiler();
     StreamOperator *stream_operator = new StreamOperator(productivity_profiler);
     StatisticsManager *statistics_manager = new StatisticsManager(productivity_profiler);
@@ -75,13 +74,21 @@ int main() {
     std::list<KSlack *> kslack_list;
 
     for (auto it: stream_list) {
-        KSlack *kslack = new KSlack(it, buffer_size_manager, statistics_manager, synchronizer);
+        KSlack *kslack = new KSlack(it, buffer_size_manager, statistics_manager);
         kslack_list.push_back(kslack);
     }
 
     for (auto it: kslack_list) {
         it->disorder_handling();
     }
+
+    //同步过程
+    Synchronizer *synchronizer = new Synchronizer(kslack_list);
+
+    synchronizer->synchronize_stream();
+
+    //连接过程
+    stream_operator->mswj_execution(synchronizer->get_output());
 
     delete synchronizer;
     delete productivity_profiler;

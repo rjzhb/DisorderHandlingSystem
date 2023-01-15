@@ -2,12 +2,12 @@
 // Created by 86183 on 2023/1/8.
 //
 
+#include <iostream>
 #include "operator/stream_operator.h"
 
 StreamOperator::StreamOperator(TupleProductivityProfiler *profiler) {
     productivity_profiler_ = profiler;
 }
-
 
 
 //连接条件,根据实际生产由程序员指定
@@ -42,14 +42,17 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
                     continue;
                 }
 
-                while (!it.second.empty()) {
-                    Tuple tuple_j = it.second.front();
+                for (auto iter = it.second.begin(); iter != it.second.end();) {
+                    Tuple tuple_j = *iter;
                     cross_join++;
                     if (tuple_j.ts < tuple.ts - it.second.size()) {
-                        it.second.pop();
+                        it.second.erase(iter++);
                         cross_join--;
+                    } else {
+                        iter++;
                     }
                 }
+
             }
 
             //更新cross_join_map
@@ -64,7 +67,7 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
                 }
                 while (!it.second.empty()) {
                     Tuple tuple_j = it.second.front();
-                    it.second.pop();
+                    it.second.pop_front();
                     if (can_join_(tuple, tuple_j)) {
                         res_size++;
                         //时间戳定义为ei.ts
@@ -77,11 +80,14 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> input) -> void {
             //更新join result map
             productivity_profiler_->update_join_res(delay, res_size);
 
-            window_map_[stream_id].push(tuple);
+            window_map_[stream_id].push_back(tuple);
         } else if (tuple.ts > T_op_ - window_map_[stream_id].size()) {
-            window_map_[stream_id].push(tuple);
+            window_map_[stream_id].push_back(tuple);
         }
     }
+
+    std::cout << "连接后:" << std::endl;
+    print(result_);
 
 }
 

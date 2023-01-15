@@ -21,7 +21,9 @@ public:
     ~Synchronizer() = default;
 
     //同步过程
-    auto synchronize_stream(std::queue<Tuple> input_list) -> void;
+    auto synchronize_stream() -> void;
+
+    auto get_output() -> std::queue<Tuple>;
 
 private:
     //输入区

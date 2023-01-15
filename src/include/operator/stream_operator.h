@@ -8,6 +8,7 @@
 
 #include <queue>
 #include <unordered_map>
+#include <list>
 #include "profiler/tuple_productivity_profiler.h"
 #include "common/define.h"
 
@@ -31,7 +32,7 @@ private:
     int T_op_{};
 
     //window map
-    std::unordered_map<int, std::queue<Tuple>> window_map_{};
+    std::unordered_map<int, std::list<Tuple>> window_map_{};
 
     //结果元组
     std::queue<Tuple> result_{};
