@@ -12,7 +12,7 @@ StreamOperator::StreamOperator(TupleProductivityProfiler *profiler) {
 
 //连接条件,根据实际生产由程序员指定
 auto StreamOperator::can_join_(Tuple t1, Tuple t2) -> bool {
-    return true;
+    return t1.delay == t2.delay + 100;
 }
 
 auto StreamOperator::get_result() -> std::queue<Tuple> {
@@ -24,7 +24,7 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
     while (!input.empty() && input.front().id > 0) {
         Tuple tuple = input.front();
         if (tuple.ts == 6) {
-            std::cout <<"" << std::endl;
+            std::cout << "" << std::endl;
         }
         input.pop();
         int stream_id = tuple.streamId;

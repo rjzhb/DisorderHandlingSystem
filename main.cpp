@@ -40,7 +40,7 @@ std::list<Stream *> generate_stream() {
     Tuple e2_5(2, 5, 8);
     Tuple e2_6(2, 6, 9);
     Tuple e2_7(2, 7, 7);
-    Tuple e2_8(2, 8, 10);
+    Tuple e2_8(2, 8, 9);
 
     stream_2_list.push(e2_1);
     stream_2_list.push(e2_2);
