@@ -48,8 +48,6 @@ auto Synchronizer::synchronize_stream(std::queue<Tuple> &input) -> void {
                 }
             }
         } else {
-            Tuple tuple = input.front();
-            input.pop();
             output_.push(tuple);
         }
         stream_operator_->mswj_execution(output_);

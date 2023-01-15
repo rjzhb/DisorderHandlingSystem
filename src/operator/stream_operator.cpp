@@ -22,6 +22,9 @@ auto StreamOperator::get_result() -> std::queue<Tuple> {
 auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
     while (!input.empty() && input.front().id > 0) {
         Tuple tuple = input.front();
+        if (tuple.ts == 6) {
+            std::cout <<"" << std::endl;
+        }
         input.pop();
         int stream_id = tuple.streamId;
 

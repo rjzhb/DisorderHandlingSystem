@@ -12,15 +12,17 @@ unordered_map
 queue
 -
 
-../src/include/manager/statistics_manager.h
-vector
+../src/include/operator/stream_operator.h
+queue
 -
 unordered_map
 -
+list
+-
 profiler/tuple_productivity_profiler.h
-../src/include/manager/profiler/tuple_productivity_profiler.h
+../src/include/operator/profiler/tuple_productivity_profiler.h
 common/define.h
-../src/include/manager/common/define.h
+../src/include/operator/common/define.h
 
 ../src/include/profiler/tuple_productivity_profiler.h
 unordered_map
@@ -28,13 +30,9 @@ unordered_map
 map
 -
 
-/home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp
-map
+/home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp
+iostream
 -
-list
--
-complex
--
-manager/statistics_manager.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/statistics_manager.h
+operator/stream_operator.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/operator/operator/stream_operator.h
 
