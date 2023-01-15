@@ -16,6 +16,7 @@ BufferSizeManager::BufferSizeManager(StatisticsManager *statistics_manager, Tupl
  * @param g  K*搜索粒度
  */
 auto BufferSizeManager::k_search(int stream_id) -> int {
+    std::lock_guard<std::mutex> lock(latch_);
     int max_DH = statistics_manager_->get_maxD(stream_id);
 
     if (max_DH == 0) {

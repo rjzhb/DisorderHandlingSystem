@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <unordered_map>
+#include <mutex>
 #include "profiler/tuple_productivity_profiler.h"
 #include "common/define.h"
 
@@ -48,6 +49,9 @@ public:
     auto get_maxD(int stream_id) -> int;
 
 private:
+    //互斥锁
+    std::mutex latch_;
+
     //Rstat窗口大小
     std::unordered_map<int, int> R_stat_map_{};
 

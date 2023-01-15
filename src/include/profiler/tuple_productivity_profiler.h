@@ -8,6 +8,7 @@
 
 #include <unordered_map>
 #include <map>
+#include <mutex>
 
 class TupleProductivityProfiler {
 public:
@@ -29,6 +30,9 @@ public:
     auto get_requirement_recall() -> double;
 
 private:
+
+    //互斥锁
+    std::mutex latch_;
 
     //到达join operator的元组数量记录
     std::unordered_map<int, int> join_record_map_{};

@@ -25,6 +25,9 @@ public:
 
 private:
 
+    //互斥锁
+    std::mutex latch_;
+
     //数据统计器
     StatisticsManager *statistics_manager_;
 

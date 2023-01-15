@@ -20,8 +20,8 @@ auto StreamOperator::get_result() -> std::queue<Tuple> {
 }
 
 auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
-    m.lock();
-    while (!input.empty() && input.front().id > 0) {
+    std::lock_guard<std::mutex> lock(latch_);
+    while (!input.empty()) {
         Tuple tuple = input.front();
         if (tuple.ts == 6) {
             std::cout << "" << std::endl;
@@ -89,8 +89,6 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
             window_map_[stream_id].push_back(tuple);
         }
     }
-    m.unlock();
-
 }
 
 

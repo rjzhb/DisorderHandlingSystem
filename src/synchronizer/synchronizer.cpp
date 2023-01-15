@@ -18,7 +18,7 @@ auto Synchronizer::get_output() -> std::queue<Tuple> {
 
 //从k-slack发送过来的流
 auto Synchronizer::synchronize_stream(std::queue<Tuple> &input) -> void {
-    m.lock();
+    std::lock_guard<std::mutex> lock(latch_);
     while (!input.empty() && input.front().id > 0) {
         Tuple tuple = input.front();
         int stream_id = tuple.streamId;
@@ -53,6 +53,5 @@ auto Synchronizer::synchronize_stream(std::queue<Tuple> &input) -> void {
         }
         stream_operator_->mswj_execution(output_);
     }
-    m.unlock();
 }
 

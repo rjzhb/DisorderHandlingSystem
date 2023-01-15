@@ -65,6 +65,7 @@ std::list<Stream *> generate_stream() {
 
 static void *task(void *p) {
     reinterpret_cast<KSlack *>(p)->disorder_handling();
+    return NULL;
 }
 
 int main() {
@@ -93,15 +94,15 @@ int main() {
     pthread_join(t2, NULL);
 
 
-    //输出kslack后的结果
-    for (auto it: kslack_list) {
-        std::cout << "kslack作用后:" << std::endl;
-        print(it->get_output());
-    }
-
-    //同步后的结果：
-    std::cout << "同步后:" << std::endl;
-    print(synchronizer->get_output());
+//    //输出kslack后的结果
+//    for (auto it: kslack_list) {
+//        std::cout << "kslack作用后:" << std::endl;
+//        print(it->get_output());
+//    }
+//
+//    //同步后的结果：
+//    std::cout << "同步后:" << std::endl;
+//    print(synchronizer->get_output());
 
     //连接后的结果：
     std::cout << "连接后:" << std::endl;

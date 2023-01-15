@@ -18,6 +18,7 @@ KSlack::~KSlack() {
     delete stream_;
     delete buffer_size_manager_;
     delete statistics_manager_;
+    delete synchronizer_;
 }
 
 

@@ -27,10 +27,10 @@ public:
     auto get_output() -> std::queue<Tuple>;
 
 private:
-//    //输入区
-//    std::queue<Tuple> input_{};
 
-    std::mutex m;
+    //互斥锁
+    std::mutex latch_;
+
     //SyncBuf缓冲区映射
     std::unordered_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_{};
 

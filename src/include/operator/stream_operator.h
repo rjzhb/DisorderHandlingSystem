@@ -29,7 +29,9 @@ public:
 
 private:
 
-    std::mutex m;
+    //互斥锁
+    std::mutex latch_;
+
     //连接时的T
     int T_op_{};
 

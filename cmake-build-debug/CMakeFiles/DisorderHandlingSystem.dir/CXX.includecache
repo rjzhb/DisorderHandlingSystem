@@ -12,6 +12,40 @@ unordered_map
 queue
 -
 
+../src/include/kslack/k_slack.h
+cstddef
+-
+queue
+-
+set
+-
+manager/buffer_size_manager.h
+../src/include/kslack/manager/buffer_size_manager.h
+manager/statistics_manager.h
+../src/include/kslack/manager/statistics_manager.h
+common/define.h
+../src/include/kslack/common/define.h
+synchronizer/synchronizer.h
+../src/include/kslack/synchronizer/synchronizer.h
+
+../src/include/manager/buffer_size_manager.h
+statistics_manager.h
+../src/include/manager/statistics_manager.h
+profiler/tuple_productivity_profiler.h
+../src/include/manager/profiler/tuple_productivity_profiler.h
+
+../src/include/manager/statistics_manager.h
+vector
+-
+unordered_map
+-
+mutex
+-
+profiler/tuple_productivity_profiler.h
+../src/include/manager/profiler/tuple_productivity_profiler.h
+common/define.h
+../src/include/manager/common/define.h
+
 ../src/include/operator/stream_operator.h
 queue
 -
@@ -31,6 +65,8 @@ unordered_map
 -
 map
 -
+mutex
+-
 
 ../src/include/synchronizer/synchronizer.h
 vector
@@ -48,9 +84,9 @@ common/define.h
 operator/stream_operator.h
 ../src/include/synchronizer/operator/stream_operator.h
 
-/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp
+/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
 iostream
 -
-synchronizer/synchronizer.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer/synchronizer.h
+kslack/k_slack.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
 

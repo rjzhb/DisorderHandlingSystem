@@ -13,10 +13,12 @@ StatisticsManager::StatisticsManager(TupleProductivityProfiler *profiler) {
 
 
 auto StatisticsManager::add_record(int stream_id, Tuple tuple) -> void {
+    std::lock_guard<std::mutex> lock(latch_);
     record_map_[stream_id].push_back(tuple);
 }
 
 auto StatisticsManager::add_record(int stream_id, int T, int K) -> void {
+    std::lock_guard<std::mutex> lock(latch_);
     T_map_[stream_id] = T;
     K_map_[stream_id] = K;
     ksync_map_[stream_id].push_back(get_ksync(stream_id));
@@ -24,6 +26,7 @@ auto StatisticsManager::add_record(int stream_id, int T, int K) -> void {
 
 
 auto StatisticsManager::get_maxD(int stream_id) -> int {
+    std::lock_guard<std::mutex> lock(latch_);
     int max_D = 0;
     for (auto it: record_map_[stream_id]) {
         max_D = std::max(max_D, it.delay);
@@ -83,7 +86,7 @@ auto StatisticsManager::get_R_stat(int stream_id) -> int {
 }
 
 
-//获取Ksync的值，Ksync = iT - ki - min{iT - ki| i∈[1,m]}
+//获取Ksync的值，Ksync = iT - ki - min{iT - ki| i∈[1,latch_]}
 auto StatisticsManager::get_ksync(int stream_id) -> int {
     int min_iT_ki = T_map_[stream_id] - K_map_[stream_id];
     for (auto it: record_map_) {
@@ -243,6 +246,7 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 }
 
 auto StatisticsManager::fDk(int d, int stream_id, int K) -> double {
+    std::lock_guard<std::mutex> lock(latch_);
     int k_sync = get_future_ksync(stream_id);
     double res = 0;
 
