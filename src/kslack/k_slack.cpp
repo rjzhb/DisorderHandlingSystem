@@ -39,7 +39,7 @@ auto KSlack::disorder_handling() -> void {
         current_time_ = std::max(current_time_, tuple.ts);
 
         //每L个时间单位调整K值
-        if (current_time_ % L == 0) {
+        if (current_time_ != 0 && current_time_ % L == 0) {
             buffer_size_ = buffer_size_manager_->k_search(stream_->get_id());
         }
 
