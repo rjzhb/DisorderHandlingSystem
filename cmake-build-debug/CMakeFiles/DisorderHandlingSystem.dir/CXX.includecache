@@ -92,3 +92,21 @@ iostream
 kslack/k_slack.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
 
+/home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp
+iostream
+-
+operator/stream_operator.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/operator/operator/stream_operator.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp
+profiler/tuple_productivity_profiler.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/profiler/tuple_productivity_profiler.h
+common/define.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/common/define.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp
+iostream
+-
+synchronizer/synchronizer.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer/synchronizer.h
+
