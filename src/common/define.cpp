@@ -5,7 +5,7 @@
 #include <mutex>
 #include "common/define.h"
 
-std::unordered_map<int, Stream *> stream_map;
+phmap::parallel_flat_hash_map<int, Stream *> stream_map;
 
 std::mutex global_lock;
 

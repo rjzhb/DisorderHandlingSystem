@@ -6,7 +6,6 @@
 #include "synchronizer/synchronizer.h"
 #include "kslack/k_slack.h"
 
-
 //测试用例
 std::list<Stream *> generate_stream() {
     std::queue<Tuple> stream_1_list;
@@ -69,7 +68,7 @@ static void *task(void *p) {
 }
 
 
-void test_2_kslack(){
+void test_2_kslack() {
     //初始化
     TupleProductivityProfiler *productivity_profiler = new TupleProductivityProfiler();
     StreamOperator *stream_operator = new StreamOperator(productivity_profiler);

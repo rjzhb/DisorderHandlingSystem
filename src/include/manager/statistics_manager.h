@@ -11,7 +11,7 @@
 #include <mutex>
 #include "profiler/tuple_productivity_profiler.h"
 #include "common/define.h"
-
+#include <parallel-hashmap/parallel_hashmap/phmap.h>
 
 class StatisticsManager {
 public:
@@ -54,22 +54,22 @@ private:
     std::mutex latch_;
 
     //Rstat窗口大小
-    std::unordered_map<int, int> R_stat_map_{};
+    phmap::parallel_flat_hash_map<int, int> R_stat_map_{};
 
     //历史流Si输入记录的映射
-    std::unordered_map<int, std::vector<Tuple>> record_map_{};
+    phmap::parallel_flat_hash_map<int, std::vector<Tuple>> record_map_{};
 
     //历史流Si的T记录
-    std::unordered_map<int, int> T_map_{};
+    phmap::parallel_flat_hash_map<int, int> T_map_{};
 
     //历史流的K记录
-    std::unordered_map<int, int> K_map_{};
+    phmap::parallel_flat_hash_map<int, int> K_map_{};
 
     //保存所有的K_sync，方便抽取样本预测未来的ksync
-    std::unordered_map<int, std::vector<int>> ksync_map_{};
+    phmap::parallel_flat_hash_map<int, std::vector<int>> ksync_map_{};
 
     //直方图映射
-    std::unordered_map<int, std::vector<double>> histogram_map_{};
+    phmap::parallel_flat_hash_map<int, std::vector<double>> histogram_map_{};
 
     //元组生产力
     TupleProductivityProfiler *productivity_profiler_;

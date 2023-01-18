@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include <queue>
 #include <mutex>
+#include "parallel-hashmap/parallel_hashmap/phmap.h"
 
 //系统参数定义
 //搜索粒度
@@ -36,7 +37,7 @@ class Stream;
 
 struct Tuple;
 
-extern std::unordered_map<int, Stream *> stream_map;
+extern phmap::parallel_flat_hash_map<int, Stream *> stream_map;
 
 extern std::mutex global_lock;
 

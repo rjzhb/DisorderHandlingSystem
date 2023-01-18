@@ -9,6 +9,8 @@
 #include <unordered_map>
 #include <map>
 #include <mutex>
+#include "parallel-hashmap/parallel_hashmap/phmap.h"
+#include <parallel-hashmap/parallel_hashmap/btree.h>
 
 class TupleProductivityProfiler {
 public:
@@ -17,7 +19,7 @@ public:
 
     ~TupleProductivityProfiler() = default;
 
-    auto get_join_record_map() -> std::unordered_map<int, int>;
+    auto get_join_record_map() -> phmap::parallel_flat_hash_map<int, int>;
 
     auto add_join_record(int stream_id, int count) -> void;
 
@@ -35,13 +37,13 @@ private:
     std::mutex latch_;
 
     //到达join operator的元组数量记录
-    std::unordered_map<int, int> join_record_map_{};
+    phmap::parallel_flat_hash_map<int, int> join_record_map_{};
 
     //the join operator records both the number of cross-join result size,
-    std::map<int, int> cross_join_map_{};
+    phmap::btree_map<int, int> cross_join_map_{};
 
     //the number of join results, using map for sorting
-    std::map<int, int> join_result_map_{};
+    phmap::btree_map<int, int> join_result_map_{};
 
 };
 

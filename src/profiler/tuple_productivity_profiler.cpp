@@ -5,7 +5,7 @@
 #include "profiler/tuple_productivity_profiler.h"
 #include "common/define.h"
 
-auto TupleProductivityProfiler::get_join_record_map() -> std::unordered_map<int, int> {
+auto TupleProductivityProfiler::get_join_record_map() -> phmap::parallel_flat_hash_map<int, int> {
     return join_record_map_;
 }
 

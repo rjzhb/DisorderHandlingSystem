@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/rjzhb/Project/DisorderHandlingSystem/src/include 
+CXX_INCLUDES = -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib 
 

@@ -12,6 +12,7 @@
 #include <mutex>
 #include "profiler/tuple_productivity_profiler.h"
 #include "common/define.h"
+#include "parallel-hashmap/parallel_hashmap/phmap.h"
 
 
 class StreamOperator {
@@ -36,7 +37,7 @@ private:
     int T_op_{};
 
     //window map
-    std::unordered_map<int, std::list<Tuple>> window_map_{};
+    phmap::parallel_flat_hash_map<int, std::list<Tuple>> window_map_{};
 
     //结果元组
     std::queue<Tuple> result_{};
