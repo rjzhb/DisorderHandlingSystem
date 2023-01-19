@@ -86,10 +86,13 @@ public:
     auto push_tuple(Tuple tuple) -> void;
 
 private:
+
     //论文中的Wi
     int window_size_{};
+
     //流id
     int stream_id_{};
+    
     //元组
     std::queue<Tuple> tuple_list_{};
 };
