@@ -16,7 +16,6 @@ BufferSizeManager::BufferSizeManager(StatisticsManager *statistics_manager, Tupl
  * @param g  K*搜索粒度
  */
 auto BufferSizeManager::k_search(int stream_id) -> int {
-    std::lock_guard<std::mutex> lock(latch_);
     int max_DH = statistics_manager_->get_maxD(stream_id);
 
     if (max_DH == 0) {
@@ -31,8 +30,8 @@ auto BufferSizeManager::k_search(int stream_id) -> int {
 }
 
 auto BufferSizeManager::y(int stream_id, int K) -> double {
+    std::lock_guard<std::mutex> lock(latch_);
     //SEL比值
-    std::lock_guard <std::mutex> lock(profiler_latch_);
     double sel_radio = productivity_profiler_->get_select_ratio(K);
 
     int wil = 0;

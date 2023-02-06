@@ -186,9 +186,11 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
     //如果d已经有现成的概率，则直接返回即可
     if (histogram_map_[stream_id][d] != 0) {
         //前面可能更新过了直方图，返回前做一次归一化
-        for (auto it: histogram_map_[stream_id]) {
-            if (it != 0) {
-                it /= sum_p;
+        if (sum_p != 0) {
+            for (auto &it: histogram_map_[stream_id]) {
+                if (it != 0) {
+                    it /= sum_p;
+                }
             }
         }
         return histogram_map_[stream_id][d];
@@ -249,7 +251,7 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 
     //归一化
     sum_p += p_d;
-    for (auto it: histogram_map_[stream_id]) {
+    for (auto &it: histogram_map_[stream_id]) {
         if (it != 0) {
             it /= sum_p;
         }
@@ -259,7 +261,6 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 }
 
 auto StatisticsManager::fDk(int d, int stream_id, int K) -> double {
-    std::lock_guard<std::mutex> lock(latch_);
     int k_sync = get_future_ksync(stream_id);
     double res = 0;
 
@@ -275,7 +276,6 @@ auto StatisticsManager::fDk(int d, int stream_id, int K) -> double {
 }
 
 auto StatisticsManager::wil(int l, int stream_id, int K) -> int {
-    std::lock_guard<std::mutex> lock(profiler_latch_);
     int wi = stream_map[stream_id]->get_window_size();
     int ni = wi / b;
     int res = 0;

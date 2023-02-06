@@ -36,7 +36,7 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
         if (tuple.ts >= T_op_) {
             T_op_ = tuple.ts;
 
-            for (auto it: window_map_) {
+            for (auto &it: window_map_) {
                 //统计window内元组数量数据
                 productivity_profiler_->add_join_record(stream_id, it.second.size());
 
@@ -63,7 +63,7 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
             //连接
             int res_size = 1;
             result_.push(tuple);
-            for (auto it: window_map_) {
+            for (auto &it: window_map_) {
                 if (it.first == stream_id) {
                     continue;
                 }
