@@ -32,6 +32,7 @@ auto BufferSizeManager::k_search(int stream_id) -> int {
 
 auto BufferSizeManager::y(int stream_id, int K) -> double {
     //SEL比值
+    std::lock_guard <std::mutex> lock(profiler_latch_);
     double sel_radio = productivity_profiler_->get_select_ratio(K);
 
     int wil = 0;

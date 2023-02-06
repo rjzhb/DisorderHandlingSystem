@@ -27,6 +27,9 @@ private:
     //互斥锁
     std::mutex latch_;
 
+    //锁TupleProductivity的互斥锁，否则调用时会和其他线程冲突
+    std::mutex profiler_latch_;
+
     //数据统计器
     StatisticsManager *statistics_manager_;
 

@@ -53,6 +53,12 @@ private:
     //互斥锁
     std::mutex latch_;
 
+    //锁TupleProductivity的互斥锁，否则调用时会和其他线程冲突
+    std::mutex profiler_latch_;
+
+    //锁get_D
+    std::mutex d_latch_;
+
     //Rstat窗口大小
     phmap::parallel_flat_hash_map<int, int> R_stat_map_{};
 

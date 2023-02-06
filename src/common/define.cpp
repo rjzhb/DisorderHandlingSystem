@@ -7,11 +7,9 @@
 
 phmap::parallel_flat_hash_map<int, Stream *> stream_map;
 
-std::mutex global_lock;
 
 //获得离散随机变量Di的值,如果delay(ei) ∈(kg,(k+1)g]，则Di=k+1
 auto get_D(int delay) -> int {
-    std::lock_guard<std::mutex> lock(global_lock);
     return delay % g == 0 ? delay / g : delay / g + 1;
 }
 

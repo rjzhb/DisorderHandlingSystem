@@ -29,6 +29,7 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
         //计算Di
         int delay = tuple.delay;
 
+
         //计算cross-join的结果大小
         int cross_join = 1;
 

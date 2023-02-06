@@ -32,7 +32,7 @@ private:
     std::mutex latch_;
 
     //SyncBuf缓冲区映射
-    phmap::parallel_flat_hash_map<int, std::set<Tuple, TupleComparator>> sync_buffer_map_{};
+    phmap::parallel_flat_hash_map<int, phmap::btree_set<Tuple, TupleComparator>> sync_buffer_map_{};
 
     //同步输出区
     std::queue<Tuple> output_{};

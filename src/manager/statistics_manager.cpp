@@ -5,6 +5,7 @@
 #include <map>
 #include <list>
 #include <complex>
+#include <iostream>
 #include "manager/statistics_manager.h"
 
 StatisticsManager::StatisticsManager(TupleProductivityProfiler *profiler) {
@@ -28,6 +29,11 @@ auto StatisticsManager::add_record(int stream_id, int T, int K) -> void {
 auto StatisticsManager::get_maxD(int stream_id) -> int {
     std::lock_guard<std::mutex> lock(latch_);
     int max_D = 0;
+
+    if (record_map_.find(stream_id) == record_map_.end()) {
+        return max_D;
+    }
+
     for (auto it: record_map_[stream_id]) {
         max_D = std::max(max_D, it.delay);
     }
@@ -56,7 +62,7 @@ auto StatisticsManager::get_R_stat(int stream_id) -> int {
     int sum_w1 = 0;
 
     //取出record里面当前R_stat大小范围的数据,并计算频率，用频率估计概率
-    for (int i = record.size() - 1; i >= record.size() - R_stat; i--) {
+    for (int i = record.size() - 1; i >= std::max((int) record.size() - R_stat, 0); i--) {
         int xi = get_D(record[i].delay);
         window1_list.push_back(xi);
         sum_w1 += xi;
@@ -88,7 +94,14 @@ auto StatisticsManager::get_R_stat(int stream_id) -> int {
 
 //获取Ksync的值，Ksync = iT - ki - min{iT - ki| i∈[1,latch_]}
 auto StatisticsManager::get_ksync(int stream_id) -> int {
+    if (T_map_.find(stream_id) == T_map_.end()
+        || K_map_.find(stream_id) == K_map_.end()
+        || record_map_.empty()) {
+        return 1;
+    }
+
     int min_iT_ki = T_map_[stream_id] - K_map_[stream_id];
+
     for (auto it: record_map_) {
         min_iT_ki = std::min(min_iT_ki, T_map_[it.first] - K_map_[it.first]);
     }
@@ -106,7 +119,7 @@ auto StatisticsManager::get_avg_ksync(int stream_id) -> int {
     }
 
     //找出R_stat范围内的ksync_i的总和，再取平均值
-    for (int i = ksync_list.size() - 1; i >= ksync_list.size() - R_stat; i--) {
+    for (int i = ksync_list.size() - 1; i >= std::max((int) ksync_list.size() - R_stat, 0); i--) {
         sum_ksync_i += ksync_map_[stream_id][i];
     }
     int avg_ksync_i = sum_ksync_i / R_stat;
@@ -149,7 +162,7 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
 
     //取出record里面R_stat大小范围的数据,并计算频率，用频率估计概率
     std::map<int, int> rate_map;
-    for (int i = record.size() - 1; i >= record.size() - R_stat; i--) {
+    for (int i = record.size() - 1; i >= std::max((int) record.size() - R_stat, 0); i--) {
         int Di = get_D(record[i].delay);
         rate_map[Di] = rate_map.find(Di) == rate_map.end() ? 1 : rate_map[Di] + 1;
     }
@@ -262,6 +275,7 @@ auto StatisticsManager::fDk(int d, int stream_id, int K) -> double {
 }
 
 auto StatisticsManager::wil(int l, int stream_id, int K) -> int {
+    std::lock_guard<std::mutex> lock(profiler_latch_);
     int wi = stream_map[stream_id]->get_window_size();
     int ni = wi / b;
     int res = 0;
