@@ -254,11 +254,27 @@ synchronizer/synchronizer.h
 kslack/k_slack.h
 /home/rjzhb/Project/DisorderHandlingSystem/kslack/k_slack.h
 
+/home/rjzhb/Project/DisorderHandlingSystem/src/common/define.cpp
+iostream
+-
+mutex
+-
+common/define.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/common/common/define.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp
+common/define.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/common/common/define.h
+
 /home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp
 iostream
 -
 kslack/k_slack.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/kslack/kslack/k_slack.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/manager/buffer_size_manager.cpp
+manager/buffer_size_manager.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/buffer_size_manager.h
 
 /home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp
 map
@@ -271,6 +287,18 @@ iostream
 -
 manager/statistics_manager.h
 /home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/statistics_manager.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp
+iostream
+-
+operator/stream_operator.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/operator/operator/stream_operator.h
+
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp
+profiler/tuple_productivity_profiler.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/profiler/tuple_productivity_profiler.h
+common/define.h
+/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/common/define.h
 
 /home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp
 iostream

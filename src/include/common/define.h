@@ -62,7 +62,7 @@ struct Tuple {
 
 struct TupleComparator {
     //按到达时间来排序
-    bool operator()(Tuple e1, Tuple e2) {
+    bool operator()(Tuple e1, Tuple e2) const {
         return e1.ts == e2.ts ? e1.id < e2.id : e1.ts < e2.ts;
     }
 };
@@ -92,7 +92,7 @@ private:
 
     //流id
     int stream_id_{};
-    
+
     //元组
     std::queue<Tuple> tuple_list_{};
 };
