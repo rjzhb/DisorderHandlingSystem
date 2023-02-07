@@ -2,6 +2,7 @@
 Implement of disorder handling of data stream from a ICDE2016 paper
 
 ## Paper Introduction
+
 ### ICDE2016 Paper： Quality-Driven Disorder Handling for M-way Sliding Window Stream Joins
 
 ![image](https://user-images.githubusercontent.com/105226542/217196933-3c82d383-2cff-4519-85f4-df7ce8955160.png)
@@ -26,7 +27,8 @@ https://arxiv.org/abs/1703.07617
 
 ![image](https://user-images.githubusercontent.com/105226542/216964400-5ea4b7bb-b7a5-4546-850c-cdcfbefa8ee1.png)
 
-##How to build
+
+## How to build
 
 ### Build in shell
 
