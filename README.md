@@ -35,4 +35,5 @@ https://arxiv.org/abs/1703.07617
 ```shell
 
 mkdir build && cd build
+cmake ..
 make 
