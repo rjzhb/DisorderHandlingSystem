@@ -42,10 +42,10 @@ extern phmap::parallel_flat_hash_map<int, Stream *> stream_map;
 extern std::mutex global_lock;
 
 //获得离散随机变量Di(粗粒度延迟)的值
-auto inline get_D(int delay) -> int;
+auto get_D(int delay) -> int;
 
 //输出用
-auto inline print(std::queue<Tuple> q) -> void;
+auto print(std::queue<Tuple> q) -> void;
 
 struct Tuple {
     //表示来自输入流Si
