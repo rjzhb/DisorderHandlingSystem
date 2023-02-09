@@ -123,32 +123,32 @@ DisorderHandlingSystem/fast:
 	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/build
 .PHONY : DisorderHandlingSystem/fast
 
-main.o: main.cpp.o
+benchmark.o: benchmark.cpp.o
 
-.PHONY : main.o
+.PHONY : benchmark.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o
-.PHONY : main.cpp.o
+benchmark.cpp.o:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o
+.PHONY : benchmark.cpp.o
 
-main.i: main.cpp.i
+benchmark.i: benchmark.cpp.i
 
-.PHONY : main.i
+.PHONY : benchmark.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/main.cpp.i
-.PHONY : main.cpp.i
+benchmark.cpp.i:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.i
+.PHONY : benchmark.cpp.i
 
-main.s: main.cpp.s
+benchmark.s: benchmark.cpp.s
 
-.PHONY : main.s
+.PHONY : benchmark.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/main.cpp.s
-.PHONY : main.cpp.s
+benchmark.cpp.s:
+	$(MAKE) -f CMakeFiles/DisorderHandlingSystem.dir/build.make CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.s
+.PHONY : benchmark.cpp.s
 
 src/common/define.o: src/common/define.cpp.o
 
@@ -375,9 +375,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... DisorderHandlingSystem"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... benchmark.o"
+	@echo "... benchmark.i"
+	@echo "... benchmark.s"
 	@echo "... src/common/define.o"
 	@echo "... src/common/define.i"
 	@echo "... src/common/define.s"

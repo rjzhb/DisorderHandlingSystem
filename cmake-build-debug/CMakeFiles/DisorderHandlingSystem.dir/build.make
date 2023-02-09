@@ -57,18 +57,18 @@ include CMakeFiles/DisorderHandlingSystem.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DisorderHandlingSystem.dir/flags.make
 
-CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o: CMakeFiles/DisorderHandlingSystem.dir/flags.make
-CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/main.cpp
+CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o: CMakeFiles/DisorderHandlingSystem.dir/flags.make
+CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o: ../benchmark.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/benchmark.cpp
 
-CMakeFiles/DisorderHandlingSystem.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisorderHandlingSystem.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rjzhb/Project/DisorderHandlingSystem/main.cpp > CMakeFiles/DisorderHandlingSystem.dir/main.cpp.i
+CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rjzhb/Project/DisorderHandlingSystem/benchmark.cpp > CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.i
 
-CMakeFiles/DisorderHandlingSystem.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisorderHandlingSystem.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rjzhb/Project/DisorderHandlingSystem/main.cpp -o CMakeFiles/DisorderHandlingSystem.dir/main.cpp.s
+CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rjzhb/Project/DisorderHandlingSystem/benchmark.cpp -o CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.s
 
 CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o: CMakeFiles/DisorderHandlingSystem.dir/flags.make
 CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o: ../src/kslack/k_slack.cpp
@@ -176,7 +176,7 @@ CMakeFiles/DisorderHandlingSystem.dir/src/common/define.cpp.s: cmake_force
 
 # Object files for target DisorderHandlingSystem
 DisorderHandlingSystem_OBJECTS = \
-"CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o" \
+"CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o" \
 "CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o" \
 "CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o" \
 "CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o" \
@@ -189,7 +189,7 @@ DisorderHandlingSystem_OBJECTS = \
 # External object files for target DisorderHandlingSystem
 DisorderHandlingSystem_EXTERNAL_OBJECTS =
 
-DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o
+DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o
 DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o
 DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o
 DisorderHandlingSystem: CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o

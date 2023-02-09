@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/DisorderHandlingSystem.dir/main.cpp.o"
+  "CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o"
   "CMakeFiles/DisorderHandlingSystem.dir/src/common/define.cpp.o"
   "CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o"
   "CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o"
