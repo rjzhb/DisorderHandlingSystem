@@ -26,7 +26,6 @@ public:
 
     auto get_result() -> std::queue<std::vector<Tuple>>;
 
-    uint64_t join_res_cnt_{};
 private:
 
     auto can_join_(Tuple t1, Tuple t2) -> bool;

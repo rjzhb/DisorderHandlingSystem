@@ -73,7 +73,6 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
                     it.second.pop_front();
                     if (can_join_(tuple, tuple_j)) {
                         res_size++;
-                        join_res_cnt_++;
                         //时间戳定义为ei.ts
                         tuple_j.ts = tuple.ts;
                         join_tuple.push_back(tuple_j);
