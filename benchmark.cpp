@@ -115,8 +115,6 @@ void test_2_kslack() {
         std::cout << std::endl;
     }
 
-
-    std::cout << stream_operator->join_res_cnt_ << std::endl;
     delete productivity_profiler;
     delete stream_operator;
     delete statistics_manager;
