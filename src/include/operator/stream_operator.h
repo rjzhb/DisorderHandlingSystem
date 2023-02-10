@@ -24,8 +24,9 @@ public:
 
     auto mswj_execution(std::queue<Tuple> &input) -> void;
 
-    auto get_result() -> std::queue<Tuple>;
+    auto get_result() -> std::queue<std::vector<Tuple>>;
 
+    uint64_t join_res_cnt_{};
 private:
 
     auto can_join_(Tuple t1, Tuple t2) -> bool;
@@ -40,7 +41,7 @@ private:
     phmap::parallel_flat_hash_map<int, std::list<Tuple>> window_map_{};
 
     //结果元组
-    std::queue<Tuple> result_{};
+    std::queue<std::vector<Tuple>> result_{};
 
     //元组生产力监视器
     TupleProductivityProfiler *productivity_profiler_;

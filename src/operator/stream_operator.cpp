@@ -12,10 +12,10 @@ StreamOperator::StreamOperator(TupleProductivityProfiler *profiler) {
 
 //连接条件,根据实际生产由程序员指定
 auto StreamOperator::can_join_(Tuple t1, Tuple t2) -> bool {
-    return t1.delay == t2.delay + 2;
+    return t1.ts == t2.ts;
 }
 
-auto StreamOperator::get_result() -> std::queue<Tuple> {
+auto StreamOperator::get_result() -> std::queue<std::vector<Tuple>> {
     return result_;
 }
 
@@ -62,7 +62,8 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
 
             //连接
             int res_size = 1;
-            result_.push(tuple);
+            std::vector<Tuple> join_tuple;
+            join_tuple.push_back(tuple);
             for (auto &it: window_map_) {
                 if (it.first == stream_id) {
                     continue;
@@ -72,12 +73,14 @@ auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
                     it.second.pop_front();
                     if (can_join_(tuple, tuple_j)) {
                         res_size++;
+                        join_res_cnt_++;
                         //时间戳定义为ei.ts
                         tuple_j.ts = tuple.ts;
-                        result_.push(tuple_j);
+                        join_tuple.push_back(tuple_j);
                     }
                 }
             }
+            result_.push(join_tuple);
 
             //更新join result map
             productivity_profiler_->update_join_res(delay, res_size);

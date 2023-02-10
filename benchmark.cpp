@@ -106,8 +106,17 @@ void test_2_kslack() {
 
     //连接后的结果：
     std::cout << "连接后:" << std::endl;
-    print(stream_operator->get_result());
+    auto res = stream_operator->get_result();
+    while (!res.empty()) {
+        for (auto it: res.front()) {
+            std::cout << "e" << it.streamId << "," << it.id << "时间戳:" << it.ts << ",";
+        }
+        res.pop();
+        std::cout << std::endl;
+    }
 
+
+    std::cout << stream_operator->join_res_cnt_ << std::endl;
     delete productivity_profiler;
     delete stream_operator;
     delete statistics_manager;
