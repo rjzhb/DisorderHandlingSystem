@@ -27,6 +27,12 @@ https://arxiv.org/abs/1703.07617
 
 ![image](https://user-images.githubusercontent.com/105226542/216964400-5ea4b7bb-b7a5-4546-850c-cdcfbefa8ee1.png)
 
+![image](https://user-images.githubusercontent.com/105226542/218294983-d3591f8c-7909-49e9-b80b-904a6cb370a4.png)
+
+![image](https://user-images.githubusercontent.com/105226542/218294986-83cb46fe-b649-4396-a28a-66c79c1aa2fc.png)
+
+![image](https://user-images.githubusercontent.com/105226542/218295008-5e4b917b-2b81-4489-92b2-44e99d160c70.png)
+
 
 ## How to build
 
