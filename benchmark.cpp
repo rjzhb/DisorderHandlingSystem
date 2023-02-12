@@ -28,7 +28,7 @@ std::list<Stream *> generate_stream() {
     stream_1_list.push(e1_7);
     stream_1_list.push(e1_8);
 
-    Stream *stream_1 = new Stream(1, 2, stream_1_list);
+    auto *stream_1 = new Stream(1, 2, stream_1_list);
 
     std::queue<Tuple> stream_2_list;
 
@@ -50,7 +50,7 @@ std::list<Stream *> generate_stream() {
     stream_2_list.push(e2_7);
     stream_2_list.push(e2_8);
 
-    Stream *stream_2 = new Stream(2, 2, stream_2_list);
+    auto *stream_2 = new Stream(2, 2, stream_2_list);
 
     std::list<Stream *> list;
     list.push_back(stream_1);
@@ -64,23 +64,23 @@ std::list<Stream *> generate_stream() {
 
 static void *task(void *p) {
     reinterpret_cast<KSlack *>(p)->disorder_handling();
-    return NULL;
+    return nullptr;
 }
 
 
 void test_2_kslack() {
     //初始化
-    TupleProductivityProfiler *productivity_profiler = new TupleProductivityProfiler();
-    StreamOperator *stream_operator = new StreamOperator(productivity_profiler);
-    StatisticsManager *statistics_manager = new StatisticsManager(productivity_profiler);
-    BufferSizeManager *buffer_size_manager = new BufferSizeManager(statistics_manager, productivity_profiler);
-    Synchronizer *synchronizer = new Synchronizer(2, stream_operator);
+    auto *productivity_profiler = new TupleProductivityProfiler();
+    auto *stream_operator = new StreamOperator(productivity_profiler);
+    auto *statistics_manager = new StatisticsManager(productivity_profiler);
+    auto *buffer_size_manager = new BufferSizeManager(statistics_manager, productivity_profiler);
+    auto *synchronizer = new Synchronizer(2, stream_operator);
 
     std::list<Stream *> stream_list = generate_stream();
     std::list<KSlack *> kslack_list;
 
     for (auto it: stream_list) {
-        KSlack *kslack = new KSlack(it, buffer_size_manager, statistics_manager, synchronizer);
+        auto *kslack = new KSlack(it, buffer_size_manager, statistics_manager, synchronizer);
         kslack_list.push_back(kslack);
     }
 
