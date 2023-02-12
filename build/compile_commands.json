@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/benchmark.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/benchmark.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/benchmark.cpp"
+},
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/src/kslack/k_slack.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/src/kslack/k_slack.cpp"
+},
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/src/manager/buffer_size_manager.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/manager/buffer_size_manager.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/src/manager/buffer_size_manager.cpp"
+},
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/src/manager/statistics_manager.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp"
+},
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/src/synchronizer/synchronizer.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/src/synchronizer/synchronizer.cpp"
+},
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/src/operator/stream_operator.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/src/operator/stream_operator.cpp"
+},
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/src/common/stream.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/src/common/stream.cpp"
+},
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/src/profiler/tuple_productivity_profiler.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/src/profiler/tuple_productivity_profiler.cpp"
+},
+{
+  "directory": "/home/rjzhb/Project/DisorderHandlingSystem/build",
+  "command": "/usr/bin/clang++   -I/home/rjzhb/Project/DisorderHandlingSystem/src/include -I/home/rjzhb/Project/DisorderHandlingSystem/lib  -g   -Wall -g -std=gnu++14 -o CMakeFiles/DisorderHandlingSystem.dir/src/common/define.cpp.o -c /home/rjzhb/Project/DisorderHandlingSystem/src/common/define.cpp",
+  "file": "/home/rjzhb/Project/DisorderHandlingSystem/src/common/define.cpp"
+}
+]
