@@ -2,7 +2,6 @@
 // Created by 86183 on 2023/1/8.
 //
 
-#include <iostream>
 #include "operator/stream_operator.h"
 
 StreamOperator::StreamOperator(TupleProductivityProfiler *profiler) {
