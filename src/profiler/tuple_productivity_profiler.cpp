@@ -48,7 +48,7 @@ auto TupleProductivityProfiler::get_select_ratio(int K) -> double {
 
 auto TupleProductivityProfiler::get_requirement_recall() -> double {
     std::lock_guard<std::mutex> lock(latch_);
-    int max_D = cross_join_map_.end()->first;
+    int max_D = (--cross_join_map_.end())->first;
     int N_true_L = 0;
     for (int d = 0; d <= max_D; d++) {
         N_true_L += join_result_map_[d];
