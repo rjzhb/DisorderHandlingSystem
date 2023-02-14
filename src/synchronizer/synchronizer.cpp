@@ -32,7 +32,7 @@ auto Synchronizer::synchronize_stream(std::queue<Tuple> &input) -> void {
             //检测是否缓冲区拥有所有流的tuple
             while (own_stream_ == stream_count_) {
                 //找到Tsync
-                T_sync_ = INT8_MAX;
+                T_sync_ = INT32_MAX;
                 for (auto it: sync_buffer_map_) {
                     T_sync_ = std::min(T_sync_, it.second.begin()->ts);
                 }

@@ -130,7 +130,7 @@ auto StatisticsManager::get_avg_ksync(int stream_id) -> int {
 //公式见论文page 7
 auto StatisticsManager::get_future_ksync(int stream_id) -> int {
     int avg_ksync_i = get_avg_ksync(stream_id);
-    int min_ksync = INT8_MAX;
+    int min_ksync = INT32_MAX;
 
     //找到j != i的所有avg_ksync的最小值
     for (auto it: ksync_map_) {
@@ -140,7 +140,7 @@ auto StatisticsManager::get_future_ksync(int stream_id) -> int {
         min_ksync = std::min(min_ksync, get_avg_ksync(it.first));
     }
 
-    if (min_ksync == INT8_MAX) {
+    if (min_ksync == INT32_MAX) {
         min_ksync = 0;
     }
     return avg_ksync_i - min_ksync;
