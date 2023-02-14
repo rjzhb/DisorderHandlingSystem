@@ -22,7 +22,7 @@ auto Stream::get_id() -> int {
     return stream_id_;
 }
 
-auto Stream::get_tuple_list() -> std::queue<Tuple> {
+auto Stream::get_tuple_list() -> std::queue<Tuple> & {
     return tuple_list_;
 }
 

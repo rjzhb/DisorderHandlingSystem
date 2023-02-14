@@ -23,13 +23,13 @@ auto BufferSizeManager::k_search(int stream_id) -> int {
     }
 
     int k = 0;
-    while (k <= max_DH && y(stream_id, k) < productivity_profiler_->get_requirement_recall()) {
+    while (k <= max_DH && y(k) < productivity_profiler_->get_requirement_recall()) {
         k = k + g;
     }
     return k;
 }
 
-auto BufferSizeManager::y(int stream_id, int K) -> double {
+auto BufferSizeManager::y(int K) -> double {
     std::lock_guard<std::mutex> lock(latch_);
     //SEL比值
     double sel_radio = productivity_profiler_->get_select_ratio(K);

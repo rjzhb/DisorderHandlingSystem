@@ -22,7 +22,7 @@ public:
 private:
 
     //论文中的函数γ(L,T)
-    auto y(int stream_id, int K) -> double;
+    auto y(int K) -> double;
 
     //互斥锁
     std::mutex latch_;

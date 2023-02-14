@@ -41,7 +41,7 @@ private:
     size_t buffer_size_{1};
 
     //当前时间(相当于论文的T值)
-    int current_time_;
+    int current_time_{};
 
     //传输过来的流
     Stream *stream_;

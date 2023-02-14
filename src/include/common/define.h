@@ -79,7 +79,7 @@ public:
 
     auto get_id() -> int;
 
-    auto get_tuple_list() -> std::queue<Tuple>;
+    auto get_tuple_list() -> std::queue<Tuple> &;
 
     auto pop_tuple() -> void;
 
