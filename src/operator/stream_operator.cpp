@@ -9,10 +9,6 @@ StreamOperator::StreamOperator(TupleProductivityProfiler *profiler) {
 }
 
 
-//连接条件,根据实际生产由程序员指定
-auto StreamOperator::can_join_(Tuple t1, Tuple t2) -> bool {
-    return t1.ts == t2.ts;
-}
 
 auto StreamOperator::get_result() -> std::queue<std::vector<Tuple>> {
     return result_;

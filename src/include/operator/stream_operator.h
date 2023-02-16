@@ -28,7 +28,9 @@ public:
 
 private:
 
-    auto can_join_(Tuple t1, Tuple t2) -> bool;
+    static auto inline can_join_(Tuple t1, Tuple t2) -> bool {
+        return t1.ts == t2.ts;
+    };
 
     //互斥锁
     std::mutex latch_;
