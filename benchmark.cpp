@@ -104,6 +104,7 @@ void test_2_kslack() {
     std::cout << "同步后:" << std::endl;
     print(synchronizer->get_output());
 
+
     //连接后的结果：
     std::cout << "连接后:" << std::endl;
     auto res = stream_operator->get_result();
