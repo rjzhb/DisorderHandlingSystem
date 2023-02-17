@@ -239,7 +239,11 @@ auto StatisticsManager::fD(int d, int stream_id) -> double {
         }
     }
 
-
+    if (left == right) {
+        histogram_map_[stream_id][left] /= 2;
+        histogram_map_[stream_id][d] = histogram_map_[stream_id][left];
+        return histogram_map_[stream_id][d];
+    }
 
     double p_l = histogram_map_[stream_id][left];
     double p_r = histogram_map_[stream_id][right];
