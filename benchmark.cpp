@@ -95,7 +95,6 @@ void test_2_kslack() {
     pthread_join(t1, NULL);
     pthread_join(t2, NULL);
 
-
     //输出kslack后的结果
     for (auto it: kslack_list) {
         std::cout << "kslack作用后:" << std::endl;
