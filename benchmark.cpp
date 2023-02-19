@@ -79,6 +79,7 @@ void test_2_kslack() {
     std::list<Stream *> stream_list = generate_stream();
     std::list<KSlack *> kslack_list;
 
+
     for (auto it: stream_list) {
         auto *kslack = new KSlack(it, buffer_size_manager, statistics_manager, synchronizer);
         kslack_list.push_back(kslack);
