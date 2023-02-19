@@ -90,6 +90,7 @@ void test_2_kslack() {
 
     pthread_create(&t1, NULL, &task, kslack_list.front());
     pthread_create(&t2, NULL, &task, kslack_list.back());
+
     //执行线程：
     pthread_join(t1, NULL);
     pthread_join(t2, NULL);
