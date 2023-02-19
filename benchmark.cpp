@@ -87,6 +87,7 @@ void test_2_kslack() {
     //生成线程
     pthread_t t1 = 1;
     pthread_t t2 = 2;
+
     pthread_create(&t1, NULL, &task, kslack_list.front());
     pthread_create(&t2, NULL, &task, kslack_list.back());
     //执行线程：
