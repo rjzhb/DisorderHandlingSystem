@@ -46,13 +46,14 @@
 				<Compiler>
 					<Add directory="/home/rjzhb/Project/DisorderHandlingSystem/src/include"/>
 					<Add directory="/home/rjzhb/Project/DisorderHandlingSystem/lib"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/llvm-10/lib/clang/10.0.0/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j12 -f &quot;/home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 DisorderHandlingSystem"/>
@@ -70,13 +71,14 @@
 				<Compiler>
 					<Add directory="/home/rjzhb/Project/DisorderHandlingSystem/src/include"/>
 					<Add directory="/home/rjzhb/Project/DisorderHandlingSystem/lib"/>
-					<Add directory="/usr/include/c++/9"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
-					<Add directory="/usr/include/c++/9/backward"/>
-					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
+					<Add directory="/usr/lib/llvm-10/lib/clang/10.0.0/include"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j12 -f &quot;/home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug/Makefile&quot;  VERBOSE=1 DisorderHandlingSystem/fast"/>

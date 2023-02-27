@@ -14,12 +14,10 @@ StatisticsManager::StatisticsManager(TupleProductivityProfiler *profiler) {
 
 
 auto StatisticsManager::add_record(int stream_id, Tuple tuple) -> void {
-    std::lock_guard<std::mutex> lock(latch_);
     record_map_[stream_id].push_back(tuple);
 }
 
 auto StatisticsManager::add_record(int stream_id, int T, int K) -> void {
-    std::lock_guard<std::mutex> lock(latch_);
     T_map_[stream_id] = T;
     K_map_[stream_id] = K;
     ksync_map_[stream_id].push_back(get_ksync(stream_id));

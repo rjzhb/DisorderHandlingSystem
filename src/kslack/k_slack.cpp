@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <future>
 #include "kslack/k_slack.h"
 
 KSlack::KSlack(Stream *stream, BufferSizeManager *buffer_size_manager, StatisticsManager *statistics_manager,
@@ -69,8 +70,12 @@ auto KSlack::disorder_handling() -> void {
         //加入tuple进入buffer
         buffer_.insert(tuple);
 
-        //将output_加入同步器
-        synchronizer_->synchronize_stream(output_);
+        auto fut = std::async(std::launch::async, [&] {
+            //将output_加入同步器
+            synchronizer_->synchronize_stream(output_);
+        });
+
+        fut.get();
 
     }
 
