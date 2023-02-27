@@ -10,22 +10,19 @@ auto TupleProductivityProfiler::get_join_record_map() -> phmap::parallel_flat_ha
 }
 
 auto TupleProductivityProfiler::add_join_record(int stream_id, int count) -> void {
-    std::lock_guard<std::mutex> lock(latch_);
     join_record_map_[stream_id] = count;
 }
 
 auto TupleProductivityProfiler::update_cross_join(int Di, int res) -> void {
-    std::lock_guard<std::mutex> lock(latch_);
     cross_join_map_[Di] = res;
 }
 
 auto TupleProductivityProfiler::update_join_res(int Di, int res) -> void {
-    std::lock_guard<std::mutex> lock(latch_);
     join_result_map_[Di] = res;
 }
 
 auto TupleProductivityProfiler::get_select_ratio(int K) -> double {
-    std::lock_guard<std::mutex> lock(latch_);
+//    std::lock_guard<std::mutex> lock(latch_);
     if (join_result_map_.empty() || cross_join_map_.empty()) {
         return 1;
 
@@ -47,7 +44,7 @@ auto TupleProductivityProfiler::get_select_ratio(int K) -> double {
 }
 
 auto TupleProductivityProfiler::get_requirement_recall() -> double {
-    std::lock_guard<std::mutex> lock(latch_);
+//    std::lock_guard<std::mutex> lock(latch_);
     int max_D = (--cross_join_map_.end())->first;
     int N_true_L = 0;
     for (int d = 0; d <= max_D; d++) {

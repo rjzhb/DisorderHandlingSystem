@@ -15,7 +15,7 @@ auto StreamOperator::get_result() -> std::queue<std::vector<Tuple>> {
 }
 
 auto StreamOperator::mswj_execution(std::queue<Tuple> &input) -> void {
-    std::lock_guard<std::mutex> lock(latch_);
+//    std::lock_guard<std::mutex> lock(latch_);
     while (!input.empty()) {
         Tuple tuple = input.front();
         input.pop();

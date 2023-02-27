@@ -25,7 +25,7 @@ auto StatisticsManager::add_record(int stream_id, int T, int K) -> void {
 
 
 auto StatisticsManager::get_maxD(int stream_id) -> int {
-    std::lock_guard<std::mutex> lock(latch_);
+//    std::lock_guard<std::mutex> lock(latch_);
     int max_D = 0;
 
     if (record_map_.find(stream_id) == record_map_.end()) {
