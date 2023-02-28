@@ -158,12 +158,6 @@ mutex
 parallel-hashmap/parallel_hashmap/phmap.h
 ../src/include/common/parallel-hashmap/parallel_hashmap/phmap.h
 
-../src/include/manager/buffer_size_manager.h
-statistics_manager.h
-../src/include/manager/statistics_manager.h
-profiler/tuple_productivity_profiler.h
-../src/include/manager/profiler/tuple_productivity_profiler.h
-
 ../src/include/manager/statistics_manager.h
 vector
 -
@@ -189,10 +183,6 @@ parallel-hashmap/parallel_hashmap/phmap.h
 ../src/include/profiler/parallel-hashmap/parallel_hashmap/phmap.h
 parallel-hashmap/parallel_hashmap/btree.h
 -
-
-/home/rjzhb/Project/DisorderHandlingSystem/src/manager/buffer_size_manager.cpp
-manager/buffer_size_manager.h
-/home/rjzhb/Project/DisorderHandlingSystem/src/manager/manager/buffer_size_manager.h
 
 /home/rjzhb/Project/DisorderHandlingSystem/src/manager/statistics_manager.cpp
 map

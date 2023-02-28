@@ -297,7 +297,7 @@ auto StatisticsManager::wil(int l, int stream_id, int K) -> int {
         res = static_cast<int>(ri * (wi - (ni - 1) * b) * res);
     }
 
-    return res;
+    return std::abs(res);
 }
 
 
