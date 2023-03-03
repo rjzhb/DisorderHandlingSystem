@@ -18,7 +18,7 @@ auto Synchronizer::get_output() -> std::queue<Tuple> {
 
 //从k-slack发送过来的流
 auto Synchronizer::synchronize_stream(std::queue<Tuple> &input) -> void {
-    std::lock_guard<std::mutex> lock(latch_);
+//    std::lock_guard<std::mutex> lock(latch_);
     while (!input.empty()) {
         Tuple tuple = input.front();
         int stream_id = tuple.streamId;
