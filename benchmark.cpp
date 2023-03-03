@@ -113,6 +113,7 @@ void test_2_kslack() {
         for (auto it: res.front()) {
             std::cout << "e" << it.streamId << "," << it.id << "时间戳:" << it.ts << ",";
         }
+
         res.pop();
         std::cout << std::endl;
     }
