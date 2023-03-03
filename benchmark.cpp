@@ -118,6 +118,7 @@ void test_2_kslack() {
         std::cout << std::endl;
     }
 
+
     delete productivity_profiler;
     delete stream_operator;
     delete statistics_manager;
