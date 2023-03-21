@@ -127,6 +127,19 @@ void test_2_kslack() {
 
 
 int main() {
-    test_2_kslack();
+//    test_2_kslack();
+    std::priority_queue<Tuple> queue;
+    Tuple e2_1(2, 1, 2);
+    Tuple e2_2(2, 2, 5);
+    Tuple e2_3(2, 3, 4);
+    Tuple e2_4(2, 4, 5);
+    queue.push(e2_1);
+    queue.push(e2_2);
+    queue.push(e2_3);
+    queue.push(e2_4);
+    while (!queue.empty()) {
+        std::cout << queue.top().ts << std::endl;
+        queue.pop();
+    }
     return 0;
 }

@@ -1,8 +1,8 @@
-C:\Windows\system32\wsl.exe --distribution Ubuntu --exec /usr/bin/zsh -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug '-DCMAKE_CXX_COMPILER=/usr/bin/g++-11' -G 'CodeBlocks - Unix Makefiles' -S /home/rjzhb/Project/DisorderHandlingSystem -B /home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug"
--- The C compiler identification is Clang 10.0.0
+C:\Windows\system32\wsl.exe --distribution Ubuntu --exec /usr/bin/zsh -c "export CMAKE_COLOR_DIAGNOSTICS=ON && export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc-11 '-DCMAKE_CXX_COMPILER=/usr/bin/g++-11' -G 'CodeBlocks - Unix Makefiles' -S /home/rjzhb/Project/DisorderHandlingSystem -B /home/rjzhb/Project/DisorderHandlingSystem/cmake-build-debug"
+-- The C compiler identification is GNU 11.1.0
 -- The CXX compiler identification is GNU 11.1.0
--- Check for working C compiler: /usr/bin/cc
--- Check for working C compiler: /usr/bin/cc -- works
+-- Check for working C compiler: /usr/bin/gcc-11
+-- Check for working C compiler: /usr/bin/gcc-11 -- works
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Detecting C compile features

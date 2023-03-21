@@ -58,6 +58,10 @@ struct Tuple {
     int delay{};
 
     Tuple(int streamId, int id, int ts) : streamId(streamId), id(id), ts(ts) {}
+
+    bool operator<(const Tuple &other) const {
+        return ts > other.ts;
+    }
 };
 
 struct TupleComparator {
