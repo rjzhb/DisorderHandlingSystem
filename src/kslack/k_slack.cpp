@@ -47,9 +47,12 @@ auto KSlack::disorder_handling() -> void {
         //计算出tuple的delay,T - ts, 方便统计管理器统计记录
         tuple.delay = current_time_ - tuple.ts;
 
-        //加入statistics_manager的历史记录统计表以及T值
-        statistics_manager_->add_record(stream_->get_id(), tuple);
-        statistics_manager_->add_record(stream_->get_id(), current_time_, buffer_size_);
+        std::async(std::launch::async, [&] {
+            //将output_加入同步器
+            //加入statistics_manager的历史记录统计表以及T值
+            statistics_manager_->add_record(stream_->get_id(), tuple);
+            statistics_manager_->add_record(stream_->get_id(), current_time_, buffer_size_);
+        }).get();
 
         //先让缓冲区所有满足条件的tuple出队进入输出区
         while (!buffer_.empty()) {
@@ -70,12 +73,10 @@ auto KSlack::disorder_handling() -> void {
         //加入tuple进入buffer
         buffer_.insert(tuple);
 
-        auto fut = std::async(std::launch::async, [&] {
+        std::async(std::launch::async, [&] {
             //将output_加入同步器
             synchronizer_->synchronize_stream(output_);
-        });
-
-        fut.get();
+        }).get();
 
     }
 
@@ -85,8 +86,11 @@ auto KSlack::disorder_handling() -> void {
         watch_output_.push(*buffer_.begin());
         buffer_.erase(buffer_.begin());
     }
-    //将剩下的output_加入同步器
-    synchronizer_->synchronize_stream(output_);
+
+    std::async(std::launch::async, [&] {
+        //将output_加入同步器
+        synchronizer_->synchronize_stream(output_);
+    }).get();
 
 }
 
